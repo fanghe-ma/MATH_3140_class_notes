@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.29)  16 OCT 2025 15:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.29)  16 OCT 2025 16:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/fanghema/Desktop/aaMATH_3140/Notes/math_3140_class_notes.tex
-(/Users/fanghema/Desktop/aaMATH_3140/Notes/math_3140_class_notes.tex
+**/Users/fanghema/Desktop/aaMATH_3140/MATH_3140_class_notes/math_3140_class_notes.tex
+(/Users/fanghema/Desktop/aaMATH_3140/MATH_3140_class_notes/math_3140_class_notes.tex
 LaTeX2e <2022-11-01> patch level 1
 L3 programming layer <2023-02-22> (/usr/local/texlive/2023/texmf-dist/tex/latex/extsizes/extarticle.cls
 Document Class: extarticle 1996/10/08 v1.0 Non Standard LaTeX document class
@@ -1732,26 +1732,96 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--29
 
  []
 
-) (./classes/class_9.tex) [19] (./math_3140_class_notes.aux)
+[19]) (./classes/class_9.tex [20]) (./classes/class_10.tex [21]) (./classes/class_11.tex [22]) (./classes/class_12.tex [23]) (./classes/class_13.tex [24]) (./classes/class_14.tex
+Underfull \hbox (badness 2181) in paragraph at lines 33--34
+[]\T1/lmss/bx/n/10 Proof. \T1/lmr/m/n/10 Say $[] \OML/lmm/m/it/10 W \OT1/lmr/m/n/10 = \OML/lmm/m/it/10 m$\T1/lmr/m/n/10 . Take $\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 w[]; [] ; w[]\OT1/lmr/m/n/10 )$ \T1/lmr/m/n/10 ba-sis for $\OML/lmm/m/it/10 W$\T1/lmr/m/n/10 . Ex-tend it to a ba-sis of $\OML/lmm/m/it/10 V$\T1/lmr/m/n/10 , $\OML/lmm/m/it/10 S \OT1/lmr/m/n/10 =
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 33--34
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--36
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 44--45
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--52
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 75--76
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 77--78
+
+ []
+
+[25]
+Underfull \hbox (badness 10000) in paragraph at lines 101--102
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 103--104
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 111--112
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 116--118
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 130--131
+
+ []
+
+[26]
+Underfull \hbox (badness 10000) in paragraph at lines 251--252
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 278--279
+
+ []
+
+[27]) [28] (./math_3140_class_notes.aux)
 Package rerunfilecheck Info: File `math_3140_class_notes.out' has not changed.
-(rerunfilecheck)             Checksum: 117F2F4A69F5E987FD9771A3D39AC7A2;3061.
+(rerunfilecheck)             Checksum: EBE73973F3B9F4AD757433D6466C2CA6;4155.
 Package logreq Info: Writing requests to 'math_3140_class_notes.run.xml'.
 \openout1 = `math_3140_class_notes.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 57239 strings out of 476025
- 1319336 string characters out of 5790017
+ 57333 strings out of 476025
+ 1320875 string characters out of 5790017
  2205366 words of memory out of 5000000
- 76496 multiletter control sequences out of 15000+600000
- 609075 words of font info for 112 fonts, out of 8000000 for 9000
+ 76544 multiletter control sequences out of 15000+600000
+ 614627 words of font info for 114 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 98i,15n,102p,2040b,2070s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,16n,102p,2056b,2070s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmib10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on math_3140_class_notes.pdf (19 pages, 286962 bytes).
+Output written on math_3140_class_notes.pdf (28 pages, 309155 bytes).
 PDF statistics:
- 433 PDF objects out of 1000 (max. 8388607)
- 351 compressed objects within 4 object streams
- 119 named destinations out of 1000 (max. 500000)
- 333 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 538 PDF objects out of 1000 (max. 8388607)
+ 446 compressed objects within 5 object streams
+ 149 named destinations out of 1000 (max. 500000)
+ 413 words of extra memory for PDF output out of 10000 (max. 10000000)
 

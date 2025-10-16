@@ -1,0 +1,333 @@
+\section{Class 14}
+
+\subsection{Quotients, cont'd}
+
+Recall from last time (homomorphism theorem) that if $\varphi: V \to W$ is a linear map between F-vector spaces, then 
+\[
+    \tilde{\varphi}: V/{\ker \varphi} \to Im \varphi, [v] \mapsto \varphi(v)
+\]
+
+is well defined isomorphism. 
+
+\begin{corollary}
+    Every linear map $\varphi: V \to W$ factors as 
+    \[
+        \varphi = i \circ \overline{\varphi} \circ \pi
+    \]
+    where 
+    \begin{itemize}
+        \item $\pi: V \to V/ \ker \varphi$ is the canonical projection 
+        \item $i: Im \varphi \to W$ is the inclusion map
+        \item $\overline{\varphi}: V / \ker \varphi \to Im\phi$ is isomorphism
+    \end{itemize} 
+\end{corollary}
+
+\begin{proposition}
+    (Dimension of a quotient space) Let $V$ be a finite dimensional vector space over $F$, and let $W \leq V$, then 
+    \[
+        \dim \left( V /W \right)  = \dim V - \dim W
+    \]
+\end{proposition}
+
+\begin{proof}
+    Say $\dim W = m$. Take $(w_1, \hdots, w_m)$ basis for $W$. Extend it to a basis of $V$, $S = (w_1, w_2, \hdots w_m, v_{m + 1}, v_{m + 2}, \hdots v_n)$ basis of $V$.  \\
+
+    WTS that $([v_{m + 1}], [v_{m + 2}] \, \hdots [v_n])$ is a basis for $V /W$. \\
+
+    Let $v \in V$ Since $S$ is a basis for $V$
+    \begin{align*}
+        & v = a_1 w_1 + \hdots a_m w_m + a_{m + 1}v_{m + 1} + \hdots a_n v_n \\
+        \implies & [v] = [a_1 w_1 + \hdots a_m w_m] + [a_{m + 1} v_{m + 1} + \hdots a_n w_n] \\ \\
+        \implies & [v] = [0] + a_{m + 1}[v_{m + 1}] + \hdots a_n [v_n]
+    \end{align*}
+
+    Hence $[v_{m + 1}], \hdots [v_n]$ spans $V /W$. \\
+
+
+    To show linear independence, let 
+    \[
+        b_{m + 1} [v_{m + 1}] + \hdots b_n [v_n] = 0
+    \]
+    for some $b_{m + 1}, \hdots b_n$. \\
+    \begin{align*}
+        & b_{m + 1} [v_{m + 1}] + \hdots b_n [v_n] = 0 \\
+        \implies & \left[ \sum\limits_{i = m+1}^{n} b_i v_i\right] = [0]
+    \end{align*}
+
+    That is, 
+    \[
+        \sum\limits_{i = m+1}^{n} b_i v_i \in W
+    \]
+    By linear independence of $v_i$'s in $S$, 
+    \[
+        b_{m + 1} = \hdots = b_n = 0
+    \]
+
+    Hence, 
+    \begin{align*}
+        \dim (V /W) &= \# \{ [v_{m + 1}], \hdots [v_n] \}  \\
+        &= n - m \\
+        &= \dim V - \dim W
+    \end{align*}
+\end{proof}
+
+\begin{corollary}
+    (New proof of dimension formula for linear maps)  \\
+    
+    Let $\varphi: V \to W$ be a linear map between $F$-vector spaces. \\
+    \[
+        \dim V = \dim \ker{\varphi} + \dim Im\varphi
+    \]
+\end{corollary}
+\begin{proof}
+    By the homomorphism theorem, 
+    \[
+        \dim V /\ker{\varphi} \cong Im \varphi
+    \]
+
+    Then 
+    \begin{align*}
+        \dim V / \ker{\varphi} &= \dim Im \varphi \text{ by Homomorphism Theorem}\\
+        \dim V \ker{\varphi} &= \dim V - \dim \ker{\varphi} \text{ by above proposition}
+    \end{align*}
+
+    Hence
+    \[
+        \dim V = \dim \ker{\varphi} + \dim Im\varphi
+    \]
+\end{proof}
+
+\begin{example}
+    (Quotient capturing Taylor expansion) \\
+
+    Let $V = C^{\infty}[-1, 1]$ be the space of smooth real-valued functions on $[-1, 1]$ and fix $d \in \mathbb{N}_{\geq 0}$. \\
+
+    Define 
+    \[
+        W_d = \{ f \in C^{\infty}[-1, 1] \text{ s.t. }  f^{(k)} (0) = 0, k = 0, 1, 2, \hdots d \}  \leq V
+    \]
+
+
+    $W_d$ consists of functions whose Taylor polynomial of degree $d$ at 0 vanishes completely. \\
+
+    Then the quotient 
+    \[
+        V /W_{d}
+    \]
+    is naturally isomorphic to the space of polynomials of degree at most $d$. \\
+
+    The isomorphism is induced by the map 
+    \[
+        \Phi: C^{\infty}[-1, 1] \to \mathcal{P}_d, f \mapsto \Phi(f)(x) = f(0) + f'(0) x + \frac{1}{2!} f''(0) x^2 + \hdots \frac{1}{d!}f^{(d)} (0)  x^d
+    \]
+    One has 
+    \[
+        V / W_d = V /\ker{\Phi} \cong Im \Phi = P_d
+    \]
+\end{example}
+
+\begin{example}
+    Recall $V = \mathbb{R}^2, W = span{(1, 0)}$. \\
+
+    Now, we know that 
+    \[
+        \dim V /W = \dim \mathbb{R}^2 - \dim W = 1
+    \]
+\end{example}
+
+\subsection{Linear Functionals}
+\subsubsection{Dual space}
+
+\begin{definition}
+(Linear Functionals) Let $V$ be an $F$-VS. A linear map $f : V \to F$ is alos called a \textbf{linear functional}. 
+\end{definition}
+
+\begin{definition}
+    Let $F$ be a field and $V$ be a $F$-vector space. The dual space is defined as
+    \[
+        V^* := Hom_F (V, F)
+    \]
+    i.e. the vector space of all linear functionals on $V$. 
+\end{definition}
+
+\begin{example}
+    Examples of linear functionals 
+    \begin{itemize}
+        \item sum of constants of polynomial
+        Let $V = \mathcal{P}_d (\mathbb{R})$, then 
+        \[
+            f : \mathcal{P}_d ( \mathbb{R}) \to \mathbb{R}, a_0 + a_1 x + \hdots a_d  x^d \mapsto a_0 + a_1 + \hdots a_d
+        \]
+        \item evaluation map
+        Let $V = C^0 [-1, 1]$, then 
+        \[
+            F_0: C^0 [-1, 1] \to \mathbb{R}, g \mapsto g(0)
+        \]
+        \item integration map
+        \[
+            \Phi: C[a, b] \to \mathbb{R}, f \mapsto \int_{a}^{b}   f(x) dx
+        \]
+        \item linear functional in $F^n$
+        Fix $a_1, a_2, \hdots a_n \in F$, define 
+        \[
+            f : F^n \to F, \begin{pmatrix} v_1 \\ \vdots \\ v_n \end{pmatrix}  \mapsto a_1v_1 + \hdots a_n v_n
+        \]
+    \end{itemize} 
+
+    Counter examples of linear functionals 
+    \begin{itemize}
+        \item finding the length 
+        \[
+        f: \mathbb{R}^3 \to \mathbb{R}, (x, y, z) \mapsto \sqrt{x^2 + y^2 + z^2}
+        \]
+        is not a linear functional.
+        \begin{align*}
+            f(-(1, 0, 0)) \neq - f(1, 0, 0)
+        \end{align*}
+        \item product of coordinates
+        \[
+            F: \mathbb{R}^2 \to \mathbb{R}, (x, y) \mapsto xy
+        \]
+        is not a linear functional.
+        Take $v_1 = (1, 0), v_2 = (0, 1)$
+        \begin{align*}
+            F(v_1) = F(v_2) &= 0  \\
+            F(v_1) + F(v_2) &= 0 \neq F(v_1 + v_2)= 1
+        \end{align*}
+    \end{itemize} 
+\end{example}
+
+\begin{remark}
+    Every linear functional in $F^n$ has the form
+    \[
+        f : F^n \to F, \begin{pmatrix} v_1 \\ \vdots \\ v_n \end{pmatrix}  \mapsto a_1v_1 + \hdots a_n v_n
+    \]
+\end{remark}
+\begin{proof}
+    Let $g \in (F^n)^*$, then 
+    \begin{align*}
+        g(v) &= g \begin{pmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{pmatrix}  = g( v_1 e_1 + \hdots v_n e_n) \\
+        &= v_1 g(e_1) + \hdots v_n g(e_n) \text{ by linearity of $g$}. 
+    \end{align*}
+
+    if you define $a_i = g(e_i), 1 \leq i \leq n$, then 
+    \[
+        g(v) = \sum\limits_{i = 1}^{n}  a_i \pi_i
+    \]
+\end{proof}
+
+\begin{theorem}
+    Let $V$ be a vector space over $F$ with basis $S = (s_1, s_2, \hdots s_n)$. Then 
+    \begin{enumerate}
+        \item $\dim V^* = \dim V$ 
+        \item Let $f_i$ be linear map such that 
+        \[
+            f_i (s_j) = \delta_{ij } = \begin{cases}
+                1 \text{ if } j = i \\
+                0 \text{ otherwise}
+            \end{cases}
+        \]
+        Then $S^* = (f_1, f_2, \hdots f_n)$ is a basis for $V^*$.
+    \end{enumerate} 
+\end{theorem}
+
+\begin{remark}
+    Recall $\dim W = m, \dim V = n$, 
+    \[
+        \dim Hom_F(V, W) = mn
+    \]
+\end{remark}
+
+
+\begin{proof}
+
+    Proof of (1): 
+    \begin{align*}
+        \dim V^* &= \dim Hom_F(V, F) \\
+        &= \dim V \times \dim F \\
+        &= \dim V
+    \end{align*}
+
+    Proof of (2): since we know that $\dim V^* = n$, it suffices to show that $S^* = (f_1, f_2, \hdots f_n)$ linearly independent in $V^*$. \\
+
+    We take a linear combination  of $S^*$ that gives the $0$ functional. 
+    \[
+        a_1 f_1 + a_2 f_2 + \hdots + a_n f_n = 0
+    \]
+    Apply functionals at $s_j$
+    \begin{align*}
+        &(a_1 f_1 + a_2 f_2 + \hdots + a_n f_n)(s_j) = 0 (s_j) = 0 \\
+        \implies & a_1 f_1 (s_j) + a_2 f_2 (s_j) + \hdots + a_n f_n (s_j) = 0 \\
+        \implies & a_j f_j s_j = 0 \\
+        \implies & a_j = 0
+    \end{align*}
+    This is true for all $1 \leq j \leq n$, therefore $S^* = (f_1, f_2, \hdots f_n)$ linearly independent.
+\end{proof}
+
+\begin{definition}
+    $S^* = (f_1, f_2, \hdots f_n)$ from theorem above is called the dual basis of $S$. 
+
+    Each $f_i$ is denoted 
+    \[
+        f_i = S_i^*
+    \]
+    
+\end{definition}
+
+\begin{example}
+    Let $V = F^n$, and $S = (e_1, e_2, \hdots e_n)$ is the standard basis where $e_i = (0, 0, \hdots 1, \hdots, 0)^T$  (only nonzero element is 1 at the $i$-th position). \\
+
+    Then 
+    \begin{align*}
+        e_i^* \begin{pmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{pmatrix}  &= e_i^* \left( \sum\limits_{j= 1}^{n} v_j e_j  \right) \\
+        &= \sum\limits_{j = 1}^{n}  v_j e_i^*(e_j ) \\
+        &= v_i e_i^* (e_i) \\
+        &= v_i
+    \end{align*}
+\end{example}
+
+\subsubsection{Duality Theorem}
+
+\begin{definition}
+    Since $V^*$ is again a vector space over $F$. Define the bidual space as 
+    \[
+        V^{**} := (V^*)^* = Hom_F (V^*, F)
+    \]
+\end{definition}
+
+\begin{remark}      
+    If $\dim V < \infty$, 
+    \[
+        \dim (V^{**}) = \dim V^* = \dim V
+    \]
+\end{remark}        
+
+\begin{theorem}
+    Let $V$ be a finite-dimensional $F$-vector space. Then, there exists a natural isomorphism 
+    \[
+        \Theta: V \to V^{**} = Hom_F(V^*, F), v \mapsto \theta(v) = \theta_v
+    \]
+    Where 
+    \[
+        \theta_v(f) = f(v) \text{ for all } f \in V^*
+    \]
+    i.e. $\theta_v$ is an evaluation functional (taking linear functionals to scalars).
+\end{theorem}
+
+%TODO: fix all function definitions, the domain and codomain would ideally be on the top line, and the mapping should come in the second line.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

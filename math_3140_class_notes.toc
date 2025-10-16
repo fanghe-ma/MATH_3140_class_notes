@@ -21,3 +21,13 @@
 \contentsline {subsection}{\numberline {7.2}Echelon form and Row-reduced echelon form}{17}{subsection.7.2}%
 \contentsline {section}{\numberline {8}Class 8}{19}{section.8}%
 \contentsline {subsection}{\numberline {8.1}Elementary Matrices and Invertible Matrices}{19}{subsection.8.1}%
+\contentsline {section}{\numberline {9}Class 9}{20}{section.9}%
+\contentsline {section}{\numberline {10}Class 10}{21}{section.10}%
+\contentsline {section}{\numberline {11}Class 11}{22}{section.11}%
+\contentsline {section}{\numberline {12}Class 12}{23}{section.12}%
+\contentsline {section}{\numberline {13}Class 13}{24}{section.13}%
+\contentsline {section}{\numberline {14}Class 14}{25}{section.14}%
+\contentsline {subsection}{\numberline {14.1}Quotients, cont'd}{25}{subsection.14.1}%
+\contentsline {subsection}{\numberline {14.2}Linear Functionals}{26}{subsection.14.2}%
+\contentsline {subsubsection}{\numberline {14.2.1}Dual space}{26}{subsubsection.14.2.1}%
+\contentsline {subsubsection}{\numberline {14.2.2}Duality Theorem}{28}{subsubsection.14.2.2}%
