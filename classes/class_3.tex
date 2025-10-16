@@ -1,0 +1,183 @@
+\section{Class 3}
+
+\subsection{Subspaces, cont'd}
+\begin{proposition}
+(Subspace Test): Let $V$ be a vector space over $F$, $W \subseteq V$, then $W \leq V$ if and only if 
+\begin{enumerate}
+    \item $W$ is non-empty
+    \item $W$ is closed under addition
+    \item $W$ is closed under scalar multiplication
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+($\implies$):  If $W \leq V$, then $0_V \in W$ hence $W \neq \emptyset$. 2 and 3 are true so that $+$ and $\cdot$ are well defined. \\
+
+($\impliedby$): Assume $1, 2, 3$, take $w \in W$ arbitrary. By 3, $-1 \cdot w = -w \in W$. By 2, $-w + w = 0 \in W$.  \\
+
+By 2 and 3, $+$ and $\cdot$ are well defined in $W$. All other properties are true because they are true in $V$. 
+\end{proof}
+
+\subsection{Intersections of subspaces and spans}
+\begin{theorem}
+(Intersection of subspaces): Let $\{ w_i \}_{i \in I} $ be a collection of subspaces in $V$. Then 
+\[
+  W = \bigcap_{i \in I}W_i 
+\]
+is a subspace of $V$. 
+\textit{The intersection of arbitrarily many subspaces of $V$ is a subspace of $V$}
+\end{theorem}
+
+\begin{proof}
+\begin{enumerate}
+\item Since $0 \in w_i$ for all $i$, $0 \in W$
+\item Take $u, v \in W$ arbitrary
+    \begin{align*}
+        u, v \in W &\implies u, v \in W_i \text{ for all } i \\
+        &\implies u + v \in W_i \text{ for all } i \\
+        &\implies u + v \in W
+    \end{align*}
+\item Take $u \in W$, $a \in F$ arbitrary, 
+    \begin{align*}
+        u \in W & \implies u \in W_i  \text{ for all } i \\
+        & \implies au \in W_i  \text{ for all } i \\
+        & \implies au \in W
+    \end{align*}
+\end{enumerate}
+\end{proof}
+
+\begin{definition}
+(Span): Let $V$ be a vector space over $F$, $S \subseteq V$, the span of $S$ is defined by 
+\[
+  <S> = \bigcap_{S \subseteq W \leq V} W
+\]
+
+\textit{The span of a set $S$ is the intersection of all subspaces in $V$ containing the set $S$}
+\end{definition}
+
+\begin{remark}
+\begin{itemize}
+\item by intersection of subspaces theorem, the span is a subspace, $<S>\ \leq V$, 
+\item when $<S> = V$, $S$ is called a generating set for $V$
+\item If there exists $S \subseteq V$, $<S> = V$, and $S$ is finite, then $V$ is finitely generated
+\item $<S>$ is also denoted $span(S)$
+\end{itemize}
+\end{remark}
+
+\begin{definition}
+(Linear Combination): Let $S$ be a subset of $V$, a vector space over $F$. A linear combination of elements of $S$ is an element $v \in V$ that can be written as 
+\[
+  v = \sum_{i = 1}^{k} a_i s_i  
+\]
+for some $s_i \in S, a_i \in F, k \in \mathbb{N}$
+
+\textit{A linear combination of elements of $S$ is a finite sum of elements of $S$}
+\end{definition}
+
+\begin{theorem}
+(Span and Linear Combination): Let $V$ be a subspace over $F$ and $S$ a subset of $V$, $S \neq \emptyset$, then 
+\[
+  <S> = span(S) = \{ \sum_{i = 1}^{k}a_i s_i: a_i \in F, s_i \in S, k \in \mathbb{N} \} 
+\]
+\end{theorem}
+
+\begin{proof}
+Let $L = \{ \sum_{i = 1}^k a_i s_i: a_i \in F, s_i \in S, k \in \mathbb{N} \} $.  We want to show that $L = <S>$ \\
+
+($L \subseteq <S>$):  \\
+
+$S \subseteq <S>$ by definition. Since $S$  is closed under addition and scalar multiplication, and $\sum a_i s_i \in <S>$ . Hence $L \subseteq <S>$.  \\
+
+($<S> \subseteq L$): \\
+
+We show that $L$ is a subspace that contains $S$. Since $<S>$ is the intersection of all subspaces that contain $S$, $<S>$ is a subset of $L$. \\
+
+$S \subseteq L$ since for any $s \in S$, $s = 1 \cdot s \in L$.  \\
+
+We then show that $L$ is a subspace. \\
+\begin{itemize}
+\item Existence of $0$: take all $a_i = 0$ in $\sum a_i s_i$,
+\item Closure under addition: for any $\sum_{i = 1}^k a_i s_i, \sum_{i = 1}^l b_i t_i \in L$, their sum is still a linear combination of $S$
+\item Closure under scalar multiplication
+\[
+   a \left( \sum_{i = 1}^k b_i s_i \right) = \sum_{i = 1}^k (ab_i) s_i
+\]
+\end{itemize}
+
+Hence 
+\[
+  <S> = \bigcap_{S \subseteq W \leq V} W \subseteq L
+\]
+\end{proof}
+
+\subsection{Sums of subspaces}
+\begin{definition}
+(Sum of subspace): Let $W_i$ be a set where each $W_i$ is a subspace of $V$ for all $i \in I$ 
+
+The sum of $W_i$ is defined as 
+\[
+  \sum_{i \in I} W_i = <\bigcup_{i = I} W_i>
+\]
+
+\textit{The sum of $W_i$ is the span of the union of $W_i$.}
+\textit{The sum of $W_i$ is the set of all linear combinations of elements in the union of $W_i$.}
+\end{definition}
+
+\begin{proposition}
+(Sum of subspaces as finite sums): Let $W_i \leq V$ for all $i \in I$, then $w \in \sum_{i = I} W_i \iff $ there exists a finite subset $J \subseteq I$ and $w_i \in W_i$ so that 
+\[
+  w = \sum_{i \in J} w_i
+\]
+\textit{The subspace spanned by $\bigcup_{i \in I} W_i$ is the set of finite sums of elements of $W_i$.}
+\end{proposition}
+
+\begin{remark}
+The union of subspaces is not necessarily a subspace. 
+\[
+  span(e_1) \cup span(e_2) = \text{ union of two lines } \rightarrow \text{ not a subspace}
+\]
+
+However, 
+\[
+  span(
+    span(e_1) \cup span(e_2) 
+  ) \leq V
+\]
+\end{remark}
+
+
+\begin{proof}
+Define 
+\[
+  W = \{ w \in V \text{ s.t. } w = \sum_{i \in J} W_i \text{ for } J \subseteq I, J \text{ finite} \} 
+\]
+
+\textbf{WTS} $W = \sum_{i \in J} W_i = < \bigcup_{i \in I} W_i> $ \\
+
+\textbf{Claim 1} $W$ is a subspace of $V$ \\
+
+\textbf{Claim 2} $\bigcup_{i \in I} W_i$ is a subset of $W$ \\
+
+\textbf{Claim 3} $W \subset span \left( \bigcup_{i \in I} W_i \right) $ because any $w \in W$ is a linear combination of elements of $\bigcup_{i \in I} W_i $ \\
+
+Hence 
+\[
+  \bigcup_{i \in I}W_i \subseteq W \subseteq span \left( \bigcup_{i \in I} W_i \right) 
+\]
+
+Also $\text{span} \left( \bigcup_{i \in I} W_i \right)$ is the smallest subset containing $\bigcup_{i \in I} W_i$, hence 
+\[
+  span \left( \bigcup_{i \in I} W_i  \right)  \subseteq W
+\]
+
+Hence
+\[
+  W = span \left(   \bigcup_{i \in I}W_i \right)
+\]
+\end{proof}
+
+\newpage
+
+
+
+

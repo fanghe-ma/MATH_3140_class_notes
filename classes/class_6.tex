@@ -1,0 +1,141 @@
+\section{Class 6}
+
+\subsection{Basis, cont'd}
+
+\begin{corollary}
+(Bases have equan cardinality): If $V$ has a finite basis of $n$ elements, then any other basis of $V$ is finite with exactly $n$ elements. 
+\end{corollary} 
+
+\begin{proof}
+Let $S = \{ s_1, \hdots s_n \} $ be a basis of $V$ with $n$ elements. \\
+
+Any other basis has to be finite. Otherwise, we would have an infinitely linearly independent set. In particular, we can find $n + 1$ linearly independent vectors, which contradicts the exchange theorem. \\
+
+If anther basis has $k$ elements, by exchange theorem, taking the other basis to be the linearly independent set, $k \leq n$. Also by exchange theorem, $n \leq k$. Hence $n = k$.
+\end{proof}
+
+
+\begin{definition}
+(Dimension):  Let $V$ be a $F$-vector space over $V$. Then 
+    \[
+    \dim V = \begin{cases}
+        \infty \text{ if $V$ not finitely generated} \\
+        n \text{ if $V$ has a basis of $n$ elements}
+    \end{cases}
+    \]
+\end{definition} 
+
+\begin{remark}
+"finitely generated" means "finite dimensional". Henceforth we will use "finite dimensional". \\
+\end{remark}
+
+\begin{remark}
+ $\dim F^n = n$ , because $ \{ e_1, \hdots e_n \} $ is a basis. \\
+\end{remark}
+
+
+\begin{corollary}
+Let $V$ be a finite-dimensional $F$-vector space $W < $ is a proper subspace (i.e. $W \leq V, W \neq V$), then 
+    \[
+      \dim W < \dim V
+    \]
+\end{corollary} 
+
+\begin{proof}
+Let $n = \dim V$. We can't ahve more than $n$ linearly independen vectors in $V$. Hence $\dim W < \infty$. \\
+
+Let $m = \dim W$, and $\{ w_1, \hdots w_n \} $ be a basis for $W$. Since $W \subset V$, there is $u \in V \setminus \{ W \} $. 
+\[
+  v \notin span(w_1, \hdots w_n)
+\]
+
+Hence $w_1, \dots w_n, u$ is linearly indepdent. 
+\[
+   \dim V \geq m+ 1 > m = \dim W
+\]
+\end{proof}
+
+\begin{theorem}
+(Dimension of sum of subspaces): Let $V$ be a finite-dimensional $F$-vector space. Let $W_1, W_2$ be subspaces of $V$. Then 
+    \begin{enumerate}
+        \item $\dim (W_1 + W_2) = \dim W_1 + \dim W_2 - \dim (W_1 \cap W_2)$
+        \item If $W_1 \cap W_2 = \{ 0 \} $, then $\dim (W_1 \bigoplus W_2) = \dim W_1 + \dim W_2$
+    \end{enumerate}
+\end{theorem} 
+
+\begin{proof}
+\newline
+$(1) \implies (2)$: $\emptyset$ is a basis of $\{ 0 \} $, so $\dim \{ 0 \} = 0$. \\
+
+$(1)$: Let $d_0 = \dim (W_1 \cap W_2), d_1 = \dim W_1, d_2 = \dim W_2$. Let $T = \{ t_1, t_2, \hdots t_{d_0} \} $ be a basis for $W_1 \cap W_2$. Complete $T$ to be a basis of $W_1$ and $W_2$. 
+\[
+  \beta_{W_1} = T \cup S, S = \{ s_1, \hdots s_{d_1 - d_0} \} 
+\]
+\[
+  \beta_{W_2} = T \cup R, R = \{ r_1, \hdots r_{d_2 - d_0} \} 
+\]
+
+\textbf{Claim}: $\beta = T \cup S \cup R$ is a basis for $W_1 + W_2$. \\
+
+If claim were true, then 
+\begin{align*}
+  \dim (W_1 + W_2) &= |T| + |S| + |R|  \\
+  &= d_0 + (d_1 - d_0) + (d_2 - d_0) \\
+  &= d_1 + d_2 - d_0 \\
+  &= \dim W_1 + \dim W_2 - \dim (W_1 \cap W_2)
+\end{align*}
+
+WTS $(T \cup S \cup R)$ spanning: \\
+
+Since $ \left< T \cup S\right> = W_1, \left< T \cup R \right> = W_2$, 
+\[
+  W_1 + W_2 \subseteq \left< T \cup S \cup R \right>
+\]
+
+We also have $\left< T \cup S \cup R\right> \subseteq W_1 + W_2$. Hence 
+\[
+  \left< T \cup S \cup R\right> = W_1 + W_2
+\]
+
+WTS $(T \cup S \cup R)$ linearly independent: \\
+
+Suppose 
+\begin{align*}
+    0 &= \sum\limits_{i = 1}^{d_0} a_i t_i + \sum\limits_{j = 1}^{d_1 - d_0} b_j s_j + \sum\limits_{k = 1}^{d_2 - d_0} c_k r_k \\
+    &= v_0 + v_1 + v_2 
+\end{align*}
+
+Then 
+\[
+  v_0 + v_1 = -v_2 \in W_1 \cap W_2
+\]
+
+Since $v_0 \in W_1 \cap W_2, v_1 \in W_1, (v_0 + v_1) \in W_1, -v_2 \in W_2$. \\
+
+Since $v_0 + v_1 \in W_1 \cap W_2$, we can express it in terms of the basis
+\[
+  v_0 + v_1 = -v_2 = \sum\limits_{ i = 1}^{d_0}  \lambda_i t_i = \sum\limits_{i = 1}^{d_0}  a_i t_i + \sum\limits_{j = 1}^{d_1 - d_0}  b_j s_j
+\]
+
+Since $T \cup S$ is a basis for $W_1$, by the fact that representations are unique, we know that all $b_j = 0$. \\
+
+Now we have 
+\[
+   0 = v_0 + v_2 = \sum\limits_{i = 1}^{d_0} a_i t_i + \sum\limits_{k = 1}^{d_2 - d_0}  c_k r_k
+\]
+
+Since $T \cup R$ is a basis for $W_2$, $a_i = c_k = 0$  for all $i, k$.
+\end{proof}
+
+\newpage
+
+
+
+
+
+
+
+
+
+
+

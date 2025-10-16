@@ -1,0 +1,264 @@
+\section{Class 5}
+
+\subsection{Basis, cont'd}
+
+\begin{definition}
+(Basis): Let $V$ be a vector space over $F$. A subset $S \subseteq V$ is a \textbf{basis} if 
+    \begin{enumerate}
+        \item $span(S) = V$
+        \item $S$ is linearly independent.
+    \end{enumerate}
+\end{definition} 
+
+\begin{example}
+\begin{enumerate}
+    \item $ \{ (1, 0), (0, 1) \} $ and $\{ (1, 1), (1, -1) \} $ are basis for $\mathbb{R}^2$
+    \item $ \{ e_1, e_2, \hdots e_n \} $ are a basis for $F^n$
+    \item The subspace of all polynomial functions over $F$, $\mathcal{P} = \{ P: F \to F: P(x) = a_0 + a_1 x + a_2 x^2 \hdots, F \subseteq \mathbb{C} \} $ has basis 
+    \[
+      S = \{ x^n : n \in \mathbb{Z}_{\geq 0} \}  = \{ 1, x, x^2 \hdots \} 
+    \]
+\end{enumerate}
+\end{example}
+
+\begin{lemma}
+Let $S$ be a linearly independent subset of $V$. Suppose $v \in V, v \notin span(S)$, then $\bar{S} = S \cup \{ v \} $ is also linearly independent.
+\end{lemma} 
+
+\begin{proof}
+Take $\{ s_1, \hdots s_k \} \subseteq S $ and $a_1, \hdots a_k, b$ such that 
+\[
+  a_1 s_1 + \hdots a_k s_k + bv = 0
+\]
+
+Note that $b = 0$. Assume otherwise for contradiction, then 
+\begin{align*}
+    bv &= -a_1 s_1 -a_2 s_2 \hdots -a_k s_k \\
+    v &= - \frac{a_1}{b} s_1 - \hdots - \frac{a_k}{b} s_k \in span(S)
+\end{align*}
+
+Since $b = 0$, 
+\begin{align*}
+    a_1 s_1 + \hdots + a_k s_k &= 0 \\
+    a_1 = \hdots = a_n &= 0 \quad \text{ by linear independence of } s_1, \hdots s_n
+\end{align*}
+
+Hence $ \bar{S}$ is linearly independent.
+
+\end{proof}
+
+\begin{theorem}
+(Basis): Let $V$ be a finitely generated vector space over $F$, and $S \subseteq V$. The following are equivalent 
+    \begin{enumerate}
+        \item $S$ is a basis of $V$
+        \item $S$ is a minimal system of generators for $V$
+        \item Every element of $V$ can be uniquely written as a linear combination of elemenets of $S$
+        \item $S$ is a maximal linearly independent subset of $V$.
+    \end{enumerate}
+\end{theorem} 
+
+\begin{proof}
+$(1) \implies (2)$: WTS $S$ being a basis implies $S$ is a minimal spanning set. \\
+
+Since $S$ is finite, we can write $S = \{ s_1, \hdots s_k \} $. Since $S$ is a basis, $span(S) = V$. Take $s \in S$ arbitrary. Let $S' = S \setminus \{ s \}$. Since $S$ is linearly independent, $s \notin span(S')$. Hence we have found an element of $V$   that is not in $span(S')$ \\
+
+$(2) \implies (3)$:  WTS $S$ being a minimal spanning set implies unique representation. \\
+
+Assume $S$ is a minimal set of generators for $V$. Take $a_i \in F, b_i \in F$ such that 
+\[
+  \sum\limits_{i = 1}^{k}  a_i s_i = \sum\limits_{i = i}^{k} b_i s_i
+\]
+
+Assume for contradiction that there is some $i \leq j \leq k$ such that $a_j \neq b_j$. Then,
+\begin{align*}
+    &(a_j - b_j) s_j = \sum\limits_{i = 1, i \neq j}^{k} (b_i - a_i) s_i \\
+    \implies & s_j = \sum\limits_{i = 1, i \neq j}^{k} \frac{b_i - a_i}{a_j - b_j} s_i \quad \text{ since } (a_j - b_j) \neq 0
+\end{align*}
+
+And we have found an element of $S$ that is a lienar combination of other elements of $S$. 
+\[
+  S' : = S \setminus \{ s_j \}  \subset S, span(S') = V
+\]
+
+This contradicts the minimality of $S$. Hence $a_i = b_i$ for all $i$. \\
+
+$(3) \implies (4)$ WTS unique representation implies maximal linear independence. \\
+
+Since $0 \cdot S_1 + 0 \cdot S_2 + \hdots + 0 \cdot S_k = 0$, and representations are unique, 
+\[
+  a_1 s_1 + a_2 s_2 + \hdots + a_k s_k \implies a_1 = a_2 = \hdots = 0
+\]
+
+Hence $S$ is linearly independent. \\
+
+To show $S$ is maximally linearly independent, take any $v \in V \setminus S $. By hypothesis, (assuming (3))
+\[
+  v = a_1 s_ 1 + a_2 s_2 + \hdots + a_k s_k
+\]
+Hence,
+\[
+  a_1 s_ 1 + a_2 s_2 + \hdots + a_k s_k - v = 0
+\],
+
+Therefore, $S \cup \{ v \} $ is not linearly independent. \\
+
+$(4) \implies (1)$. WTS that maximal linear independence implies $S$ is a basis. \\
+
+It suffices to show that $span(S) = V$. Assume towards a contradiction otherwise, then $span(S) \neq V, \exists v \in V \setminus span(S)$. By lemma, 
+\[
+  \bar{S}  = S \cup \{ v \} 
+\]
+
+is also linearly independent. $S \subset \bar{S} $. This contradicts the assumption that $S$ is maximally linearly independent.
+\end{proof}
+
+\begin{corollary}
+Every finitely generated vector space $V$ has a basis.
+\end{corollary} 
+
+\begin{proof}
+Since $V$ is finitely generated, we can find $S \subseteq V$ finite s.t. $span(S) = V$. \\
+
+We can successively remove elements from $S$ until it is a minimal set of generators.  \\
+\end{proof}
+
+\begin{remark}
+Any vector space has a basis. 
+\end{remark}
+
+
+
+\subsection{Dimension}
+
+\begin{lemma}
+(Exchange Lemma): Let $V$ be a $F$-vector space with basis $S = \{ s_1, \hdots s_n \} $. Let $w$ be 
+    \[
+      w = a_1 s_1 + \hdots + a_n s_n
+    \]
+    If $k$ is such that $a_k \neq 0$, then 
+    \[
+      S': = \{ s_1, \hdots s_{k - 1}, w, s_{k + 1}, \hdots s_n \} 
+    \]
+    is also a basis.
+\end{lemma} 
+
+\begin{proof}
+WLOG assume $a_1 \neq 0$. $S' = \{ w, s_2, \hdots s_n \} $. \\
+
+(1) WTS that $span(S') = span(S) = V$.
+
+Since $a_1 \neq 0$, 
+\begin{align*}
+    w &= a_1 s_1 + \hdots + a_n s_n \\
+    s_1 &= \frac{1}{a_1} w - \frac{a_2}{a_1}s_1 - \frac{a_3}{a_1} s_3 - \hdots \frac{a_n}{a_1} s_n \in span(S')
+\end{align*}
+
+Hence 
+\begin{align*}
+    S \subseteq span(S') \implies V \subseteq span(S')
+\end{align*}
+
+also
+\[
+  span(S') \leq V \implies span(S') \subseteq V
+\]
+
+Hence $V = span(S')$.\\
+
+
+(2) WTS that $S'$  linearly independent.
+
+Take $c, c_2, \hdots c_n \in F$ so that 
+\[
+  cw + c_2 s_2 + \hdots c_n s_n = 0
+\]
+
+Since $w = a_1 s_1 + \hdots a_n s_n$, substituting, we get
+\[
+  ca_1 s_1 + (ca_2 + c_2) s_2 + \hdots (ca_n + c_n) s_n = 0
+\]
+
+By linearly independence of $S$, 
+\[
+  ca_1 = (ca_2 + c_2) = \hdots = (ca_n + c_n) = 0
+\]
+
+Hence 
+\[
+  c = c_2 = \hdots = c_n = 0
+\]
+\end{proof}
+
+
+\begin{theorem}
+(Exchange Theorem): Let $V$ be a $F$-vector space with basis $S = \{ s_1, \hdots s_n \} $. Let $T = \{ t_1, t_2, \hdots t_m \} $ be a linear independent subset of $V$. Then $m \leq n$ and there are $m$ elements in $S$ which can be exchanged with elements of $T$ to obtain a new basis, i.e. we can form 
+    \[
+    \{ t_1, t_2, \hdots t_m, s_{m + 1}, \hdots s_n \} 
+    \]
+\end{theorem} 
+
+\begin{proof}
+
+By induction in $m$. \\
+
+Case $m=0$ is immediate. \\
+
+Assume that $m \geq 1$ and that the Exchange Theorem is true for $m - 1$. Let $T = \{ t_1, \hdots t_m \}$. $T_0 = \{ t_1, \hdots t_{m - 1} \} $ is linearly independent as well. \\
+
+By induction hypothesis, $m - 1 \leq n$ and after relabelling, $S$ is $\{  t_1, \hdots t_{m - 1}, s_m, s_{m + 1}, \hdots s_n \} $.  \\
+
+(1) We want to show that $m \leq n$. Since we assume that indunction hypothesis is true, $m -1 \leq n$. This implies either $m = n + 1$ or $m \leq n$. \\
+
+If $m - 1 = n$, then $\{ t_1, \hdots t_{m - 1} \} $ is a new basis. However, $\{ t_1, \hdots t_m \}$ is linearly independent. This contradicts with the fact that basis are maximally linearly independent. Hence $m = n$ \\
+
+(2) Since $ \{ t_1, \hdots t_{m - 1}, s_m, \hdots s_n \} $ is a basis, we can write 
+\[
+t_m = \sum\limits_{i = 1}^{m - 1}  a_i t_i + \sum\limits_{i = m}^{n}  a_i s_i
+\]
+
+Rearranging, we get 
+\[
+  a_1 t_1 + \hdots a_{m - 1}t_{m- 1} - tm = -a_m s_m - \hdots  - a_n s_n
+\]
+
+Since $ \{ t_1, \hdots t_m \} $ is lienarly independent, the LHS is non-zero, and there must be some $a_k, m \leq k \leq n$  such that $a_k \neq 0$. \\
+
+By exchange lemma, in the basis $\{ t_1, \hdots t_{m - 1}, s_m \hdots s_n \} $, we can replace $s_k$ with $t_m$, to get a new basis
+\[
+  S \ \{ s_k \}  \cup \{ t_m \} 
+\]
+\end{proof}
+
+\begin{corollary}
+(Basis extension theorem): Let $V$ be a finitely-generated $F$-vector space. Every linearly independent set $\{ t_1, \hdots t_m \} $ can be extended to form a basis for $V$. I.e. we can find 
+    \[
+      t_{m + 1}, \hdots t_n \in V \text{ such that } S = \{ t_1, \hdots t_m, t_{m + 1}, \hdots t_n \}, n \geq m
+    \]
+\end{corollary} 
+
+\begin{proof}
+By exhange theorem, consider any basis $S$. $T$ is a linearly independent set. We can choose $t_{m+1}, \hdots t_n$ to be $s_{m + 1}, \hdots, s_n $ respectively. 
+\end{proof}
+
+\newpage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

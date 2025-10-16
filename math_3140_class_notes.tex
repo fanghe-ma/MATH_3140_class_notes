@@ -1,0 +1,104 @@
+% \documentclass[letterpaper, 10pt]{report}
+% \usepackage[margin = 1in]{geometry}
+% \usepackage{amsmath}
+% \usepackage{bm}
+% \usepackage{amsthm}
+% \usepackage{tabularx}
+% \usepackage{framed}
+% \usepackage{array}
+% \usepackage{graphicx}
+% \usepackage{pdfpages}
+% \usepackage{tikz}
+% \usepackage{amssymb}
+% \usepackage{fancyhdr}
+% \usepackage{titlesec}
+% \titleformat{\chapter}[hang]
+% {\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter:}{1em}{}
+
+
+% \setlength{\parindent}{0em}
+% \newcolumntype{L}{>{\arraybackslash}m{10cm}}
+% \newcolumntype{T}{>{\arraybackslash}m{6cm}}
+
+
+% \begin{document}
+
+% \title{MATH-3140 - Class Notes}
+% \maketitle
+
+% \tableofcontents
+% \include{"./classes/class_1.tex"}
+% \include{"./classes/class_2.tex"}
+% \include{"./classes/class_3.tex"}
+% \include{"./classes/class_4.tex"}
+% \include{"./classes/class_5.tex"}
+% \include{"./classes/class_6.tex"}
+% \include{"./classes/class_7.tex"}
+% \include{"./classes/class_8.tex"}
+% \include{"./classes/class_9.tex"}
+
+% \end{document}
+
+\documentclass[10pt]{extarticle}
+
+\input{style}
+\usepackage{cancel}
+\usepackage{stackengine}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{bm}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{stmaryrd}
+\pgfplotsset{compat=newest}
+\usetikzlibrary{positioning,arrows.meta}
+\usepgfplotslibrary{fillbetween}
+
+\title{\huge\sffamily\bfseries MATH 3140 Notes}
+\author{}
+\date{}
+
+\begin{document}
+
+\setlength{\abovedisplayskip}{3pt}
+\setlength{\belowdisplayskip}{3pt}
+\setlength{\abovedisplayshortskip}{0pt}
+\setlength{\belowdisplayshortskip}{0pt}
+\maketitle
+
+%Custom colors for different environments
+\definecolor{contcol1}{HTML}{72E094}
+\definecolor{contcol2}{HTML}{24E2D6}
+\definecolor{convcol1}{HTML}{C0392B}
+\definecolor{convcol2}{HTML}{8E44AD}
+
+
+\begin{tcolorbox}[
+    title=Contents, 
+    fonttitle=\huge\sffamily\bfseries\selectfont,
+    interior style={left color=contcol1!40!white,right color=contcol2!40!white},
+    frame style={left color=contcol1!80!white,right color=contcol2!80!white},
+    interior style={left color=blue!40!white, right color=cyan!40!white},
+    frame style={left color=blue!80!white, right color=cyan!80!white},
+        colbacktitle=contcol1!40!white, % highlight color behind Contents
+        coltitle=black,
+        top=2mm,bottom=2mm,left=2mm,right=2mm,breakable
+]
+\makeatletter
+\@starttoc{toc}
+\makeatother
+\end{tcolorbox}
+
+\newpage
+
+\input{classes/class_1.tex}
+\input{classes/class_2.tex}
+\input{classes/class_3.tex}
+\input{classes/class_4.tex}
+\input{classes/class_5.tex}
+\input{classes/class_6.tex}
+\input{classes/class_7.tex}
+\input{classes/class_8.tex}
+\input{classes/class_9.tex}
+
+\end{document}

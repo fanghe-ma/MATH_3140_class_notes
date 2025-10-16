@@ -1,0 +1,211 @@
+\section{Class 4}
+
+\subsection{Direct Sums and Complements}
+
+\begin{definition}
+(Direct Sum): Let $V$ be a vector space over $F$, $W_1, W_2 \leq V$ is the direct sum of $W_1$ and $W_2$ if 
+    \begin{itemize}
+        \item $V = W_1 + W_2$
+        \item $W_1 \cap W_2 = \{ 0 \} $
+    \end{itemize}
+    denoted 
+    \[
+      V = W_1 \bigoplus W_2
+    \]
+\end{definition} 
+
+\begin{proposition}
+(Direct sum and unique representation): Let $V$ be a vector space over $F$ and $W_1$ and $W_2$ be subspaces of $V$. $V$ is the direct sum of $W_1$ and $W_2$ if and only if every element of $V$ can be uniquely written as 
+    \[
+      v = w_1 + w_2
+    \]
+    for some $w_1 \in W_1, w_2 \in W_2$
+\end{proposition} 
+
+\begin{proof}
+$(\implies)$: for any $v \in V$, there is $w_1 \in W_1, w_2 \in W_2$  such that $v = w_1 + w_2$, by definition of direct sum. \\
+
+To show that this is unique, assume 
+\[
+  v = w_1 + w_2 = w_1' + w_2', w_1, w_1' \in W_1, w_2, w_2' \in W_2
+\]
+\[
+  \implies w_1 - w_1' = w_2 - w_2'
+\]
+
+Since 
+\[
+  w_1 - w_1' \in W_1, w_2 - w_2' \in W_2
+\]
+\[
+  w_1 - w_1' = w_2 - w_2' \in W_1 \cap W_2 = \{ 0 \} 
+\]
+
+Hence $w_1 = w_1', w_2 = w_2'$ \\
+
+
+$(\impliedby)$: Since every $v \in V$ can be written $v = w_1 + w_2 \in W_1 + W_2$, $V = W_1 + W_2$. 
+
+To show that the intersubsection is trivial, take $w \in W_1 \cap W_2$, 
+\begin{align*}
+    w &= w + 0 \quad w \in W_1, 0 \in W_2 \\
+    &= 0 + w \quad 0 \in W_1, w \in W_2 \\
+\end{align*}
+
+If $w \neq 0$, there would be multiple ways to write $w$ as the sum of elements of $W_1, W_2$, hence $w$ has to be $0$ and the intersubsection is trivia. 
+\end{proof}
+
+\begin{definition}
+(Complement): Let $V$ be a vector space over $F$, $W \leq V$. A subspace $X \leq V$ is said to be the \textbf{Complement} of $W$ if 
+    \[
+      V = W \bigoplus X
+    \]
+\end{definition} 
+
+\begin{remark}
+Complements are \textbf{not} unique. For example, $V = \mathbb{R}^2, W_1 = span(e_1)$, there are multiple choices of complements, such as $span(e_2), span(e_3)$.
+\end{remark}
+
+\begin{theorem}
+(Existence of Complement): Let $V$ be a finitely generated vector space over $F$. Given any subspace $W \leq V$, we can find a complement in $V$. 
+\end{theorem} 
+
+\begin{proof}
+Since $V$ is finitely generated, there exists a finite set $S \subseteq V$ that spans $V$
+\[
+  S := \{ s_1, s_2, \hdots s_k \} \text{ such that }V= span(S)
+\]
+
+A subspace $X \leq V$ such that $V = W \bigoplus X$ can be constructed recursively. 
+
+Consider $s_1$
+\begin{itemize}
+    \item Case 1: $s_1 \in W$: $X_1 := \{ 0 \} $
+    \item Case 2: $s_1 \notin W$: $X_1 := span(s_1)$
+\end{itemize} 
+
+We claim that in either case, $X_1 \bigcap W = \{ 0 \} $ and $s_1 \in W + X_1$. Note that 
+\begin{itemize}
+    \item $s_1 \in W + X_1$ is true by construction 
+    \item for $X_1 \cap W = \{ 0 \} $,
+    \begin{itemize}
+        \item case 1: this is trivially true
+        \item case 2: say $v \in W \cap X_1$, then $v = as_1$ for some $a$, then either $a = 0$ or $a^{-1} v = s_1 \in W$, which is a contradiction. Hence $v = 0$
+    \end{itemize} 
+\end{itemize} 
+
+Consider $s_2$:
+\begin{itemize}
+    \item Case 1: $s_2 \in W$: $X_2 := X_1 $
+    \item Case 2: $s_2 \notin W$: $X_2 := X_1 + span(s_2)$
+\end{itemize} 
+
+We claim that in either case, $X_2 \bigcap W = \{ 0 \} $ and $s_2 \in W + X_2$. Note that 
+\begin{itemize}
+    \item $s_2 \in W + X_2$ is true by construction 
+    \item for $X_2 \cap W = \{ 0 \} $,
+    \begin{itemize}
+        \item case 1: this is trivially true
+        \item case 2: say $v \in W \cap X_2$, then $v = x_1 + as_2$ for some $a$, then either $a = 0$ or $as_2 = v - x_1 \in W \implies s_2 = a^{-1}(w - x_1) \in W + X_1$, which is a contradiction. Hence $v = 0$
+    \end{itemize} 
+\end{itemize} 
+
+With this method of construction, we find subspaces $X_1 \hdots X_k$, 
+\[
+  X_1 \subseteq X_2 \hdots \subseteq X_k
+\]
+such that 
+\[
+  \{ s_1, \hdots s_k \} \in W+ X_k , W \cap X_k = \{ 0 \} 
+\]
+Hence 
+\begin{align*}
+    span(s_1, \hdots s_k) &\subseteq W + X_k \\ 
+    V &\subseteq W + X_k \\
+    V &= W \bigoplus X_k
+\end{align*}
+
+Note that $W + X_k \subseteq V$ naturally because we are working with subspaces of $V$. 
+\end{proof}
+
+\subsection{Basis and dimension}
+
+\begin{definition}
+    (Linear Independence, finite case): Let $V$ be a vector space over $F$, $S = \{ s_1, \hdots s_n \} \subseteq V$. $S$ is said to be linearly independent if 
+    \[
+      a_1 s_1 + a_2 s_2 \hdots  a_n s_n = 0 \implies a_1 = a_2 = \hdots a_n = 0
+    \]
+\end{definition} 
+
+\begin{remark}
+$S = \{ s_1, s_2, \hdots s_n \}$ is linearly dependent if it is not linearly independent.
+\end{remark}
+
+
+\begin{definition}
+(Linear Independence, infinite case): $S \subseteq V$ is linearly dependent if every finite subset of $S$ is linearly independent.
+\end{definition} 
+
+\begin{remark}
+By convention, $\emptyset$ is linearly independent, and 
+\[
+  span \left(  \emptyset \right) = \{ 0 \} 
+\]
+
+Since $ \{ 0 \} $ is the smallest subspace that contains $ \emptyset$. \\
+\end{remark}
+
+\begin{lemma}
+Let $V$ be a vector space over $F$, then 
+\begin{enumerate}
+  \item $S \subseteq V, 0 \in S$ then $S$ is linearly dependent. 
+  \item $\{  v \} \subseteq V$ is linearly dependent if and only if $v = 0$
+  \item For $n \geq 2$ distinct vectors $ \{s_1, s_2, \hdots s_n \}$, the list of vectors is linearly dependent if and only if there is some $s_i$ that is a linear combination of the others.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\begin{enumerate}
+  \item Proof: $1 \cdot 0 = 0$, there are infinitely many non-trivial representations of 0.
+  \item Proof:
+  \begin{itemize}
+    \item $(\impliedby)$ true by (1)
+    \item $(\implies)$ take some non-trivial representation of 0, i.e. $av = 0, a \neq 0$, multiply by multiplicative inverse, $a^{-1}a v = a^{-1}0 \implies v = 0$
+  \end{itemize}
+  \item Proof:
+  \begin{itemize}
+    \item $(\impliedby)$ This direction is immediate.
+    \item $(\implies)$ By linear dependence, there is a non-trivial representation of 0. I.e. there exists $a_1, \hdots a_n \in F$, not all 0 such that 
+    \[
+      a_1 s_1 + \hdots + a_n s_n = 0
+    \]
+    WLOG, say $a_k \neq 0$, rewriting, 
+    \[
+      a_ks_k = - \sum_{i = 1, i \neq k}^n a_i s_i \implies s_k = - \frac{1}{a_k} \sum_{i = 1, i \neq k}^{n} a_i s_i
+    \]
+    \qed
+  \end{itemize}
+\end{enumerate}
+\end{proof}
+
+\begin{lemma}
+Let $V$ be a vector space over $F$, $S \subseteq V$, finite. The following are equivalent 
+\begin{enumerate}
+  \item $S$ is linearly independent
+  \item Every element of $span(S)$ can be uniquely represented as a linear combination of elements of $S$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+$(1) \implies (2)$: Take $v \in span(S)$ and assume $v = \sum_{i = 1}^k a_i s_i = \sum_{i = 1}^k b_i s_i$, then 
+\begin{align*}
+  &\sum_{i = 1}^k (a_i - b_i) s_i = 0 \\
+  \implies &a_i - b_i = 0 \text{ for all } i, \text{ by linear independence of } s_i \\
+  \implies &a_i = b_i \text{ for all } i
+\end{align*}
+
+
+$(2) \implies (1)$: Take $a_1, a_2, \hdots a_n \in F$, so that $a_1 s_1 + \hdots + a_n s_n = 0$. Since the trivial representation is \textbf{a} representation of $0$, and representations are unique, the trivial representation is the only representation. Hence $a_1 = a_2 \hdots = a_n = 0$.
+\end{proof}
+
+\newpage

@@ -1,0 +1,283 @@
+\section{Class 7}
+
+\subsection{Matrices and Systems of linear equations} 
+
+\begin{definition}
+(Matrix): A $m \times n$ matrix over field $F$ is an array of elements $a_{ij} \in F$ of the form 
+    \[
+        A = 
+        \begin{bmatrix} 
+            a_{11} & a_{12} & \hdots & a_{1 n} \\
+            a_{21} & a_{22} & \hdots & a_{2 n} \\
+            \vdots & \vdots & \vdots & \vdots \\
+            a_{m1} & a_{m2} & \hdots & a_{m n} \\
+        \end{bmatrix}
+    \]
+
+    Where $m$ is the bumber of rows and $n$ is the number of columns. \\
+
+    We denote $Mat_{m \times n}(F)$ the set of all such matrices, or $F^{m \times n}$. \\
+\end{definition} 
+
+\begin{notation}
+$A_{ij}$ denotes the $(i, j)$ entry of matrix $A \in Mat_{m \times n}(F)$. \\
+\end{notation}
+
+\begin{remark}
+$F^{m \times n}$ is a vector space with sum and scalar multiplication defined entrywise. 
+\end{remark}
+
+\begin{remark}
+$\dim F^{ m \times n} = mn$. \\
+\end{remark}
+
+\begin{proof}
+We present a basis with $mn$ elements. Consider 
+\[
+{ \{ E^{i j} \} }_{{1 \leq i \leq m, 1 \leq j \leq n}}
+\] 
+
+Where 
+\[
+  \left( E^{i j} \right)_{kl} = \begin{cases}
+    1 \text{ if } (k, l) = (i, j) \\
+    0 \text{ otherwise}
+  \end{cases}
+\]
+\end{proof}
+
+
+\begin{definition}
+(Matrix Multiplication): $A \leq F^{m \times n}, B \in F^{n \times r}$. Then, $AB \in F^{m \times r}$ is defined by 
+    \[
+        (AB)_{ij} = \sum\limits_{k = 1}^{n}  A_{ik}B_{k j}
+    \]
+
+    I.e. the $(i, j)$-th entry of $AB$ is the dot product of the $i$-th row of $A$ with the $j$-th column of $B$.
+\end{definition} 
+
+\begin{remark}
+\textbf{Properties of matrix multiplication}
+\begin{itemize}
+    \item In general, for $A, B \in F^{n \times m}$, $AB \neq BA$ 
+    \item $A \in F^{m \times n}, B \in F^{n \times r}, C \in F^{r \times s}$, $(AB)C = A(BC)$. 
+\end{itemize} 
+
+\end{remark}
+
+
+\begin{definition}
+(Systems of linear equations): Let $b_1, b_2, \hdots b_n \in F, a_{ij} \in F, \forall 1 \leq i \leq m, 1 \leq j \leq n$, the set of equations 
+    \[
+        \begin{cases}
+            a_{11}x_1 + a_{12}x_2 + \hdots + a_{1n}x_n = b_1 \\
+            a_{21}x_1 + a_{22}x_2 + \hdots + a_{2n}x_n = b_2 \\
+            \quad \vdots  \\
+            a_{m1}x_1 + a_{m2}x_2 + \hdots + a_{mn}x_n = b_m \\
+        \end{cases}
+    \]
+    is called a system of $m$-linear equations in $n$ unknowns.
+\end{definition} 
+
+\begin{remark}
+In matrix notation, let $A, B$ 
+\[
+    A = \begin{pmatrix} 
+        a_{11} & a_{12} & \hdots & a_{1n} \\
+        a_{21} & a_{22} & \hdots & a_{2n} \\
+        \vdots & \vdots & \hdots & \vdots \\
+        a_{m1} & a_{m2} & \hdots & a_{mn} \\
+    \end{pmatrix} \in F^{m \times n}
+\]
+\[
+    b = \begin{pmatrix} 
+        b_1 \\ b_2 \\ \vdots \\ b_m  
+    \end{pmatrix} \in F^{m \times 1}
+\]
+
+The system of $m$-linear equations in $n$ variables is denoted 
+\[
+  A x = b
+\]
+
+Where 
+\[
+  x = \begin{pmatrix} x_1 \\ x_2 \\ \hdots \\ x_n \end{pmatrix}  \in F^{n \times 1 }
+\]
+\end{remark}
+
+
+\begin{definition}
+(Homogeneity): A system $Ax = b$ is homogenous if $b = 0 \in F^{n}$. Otherwise it is inhomogenous. 
+\end{definition} 
+
+\begin{remark}
+A homogenous system has at least one solution with $x = 0$. Otherwise, this is not guaranteed. 
+\end{remark}
+
+\begin{definition}
+(Solution set): The solution set of a linear system $Ax = b$ is the set of elements in $F^{n \times 1}$ such that $Ax = b$
+    \[
+        \{ x \in F^{n \times 1} : Ax = b\} 
+    \]
+\end{definition} 
+
+\begin{remark}
+If the system is homogenous, then the solution set is a subspace. 
+\end{remark}
+
+
+\subsection{Echelon form and Row-reduced echelon form}
+
+\begin{definition}
+(Echelon form): $A \in F^{m \times n}$ is in echelon form if 
+    \begin{enumerate}
+        \item There exists some $r, 1 \leq r \leq m$ so that every row of index less than or equal to $r$ has at least 1 non-zero entry, and every row of index greater than $r$ is zero 
+        \item for every $i \leq r$, consider the lowest index $j_i$ that has a non-zero entry, i.e. 
+        \[
+            j_i := \min \{ 1 \leq j \leq n: a_{j_i} \neq 0 \} 
+        \]
+        Then
+        \[
+            a_{ij_i} = 1
+        \]
+        \item $j_1 \leq j_2 \leq j_3 \hdots < j_r$
+    \end{enumerate} 
+
+\end{definition} 
+
+\begin{remark}
+The $a_{i j_i}$ are referred to as pivots. \\
+\begin{itemize}
+    \item If $A$ is in echelon form, then we can find the solution set. 
+    \item By relabelling the variables, assume we have pivots in the first $r$ columns, $Ax  = b$ becomes 
+    \[
+        \left(
+        \begin{array}{cccc|c}
+        1 &   &        &   & b_1 \\
+        0 & 1 &        &   & b_2 \\
+        0 &   & \ddots &   & \vdots \\
+        0 &   &        & 1 & b_r \\
+        \hline
+        0 & 0 & \cdots & 0 & b_{r+1} \\
+        0 & 0 & \cdots & 0 & \vdots \\
+        0 & 0 & \cdots & 0 & b_m
+        \end{array}
+        \right)
+    \]
+    \begin{itemize}
+        \item If there is some $i > r$ for which $b_i \leq 0$, then there is no solution.
+        \item If all $b_i = 0$ for $i > r$, the variables $x_1, x_2, \hdots x_r$ can be solved in terms of the variables $x_{r + 1}, x_{r + 2}, \hdots x_n$
+    \end{itemize} 
+\end{itemize} 
+\end{remark}
+
+
+\begin{definition}
+(Row-reduced echelon form): $A$ is in the row-reduced echelon form if $A$ is in the echelon form and all entries above the pivots are zero.
+\end{definition} 
+
+\begin{definition}
+(Elementary row operations): 
+\begin{itemize}
+    \item \textbf{RO1}: Exchange 2 different rows
+    \item \textbf{RO2}: Add $\lambda$ times $i$-th row to the $j$-th row where $\lambda \in F  \setminus \{ 0 \}, i \neq j$  and replacing row $j$ with the result 
+    \item \textbf{RO3}: Multiply a row by a non-zero scalar in $F$
+\end{itemize} 
+\end{definition}
+
+
+
+\begin{theorem}
+(Row-reduced echelon form):  
+    \begin{enumerate}
+        \item Every matrix $A$ can be put into row-reduced echelon form using finitely many elementary row operations
+        \item If $Ax = b$ is a system of linear equations and $(\tilde{A} | \tilde{b})$ is the matrix obtained from $(A|b)$ by performing the row operations that \textbf{put $A$ in row-reduced echelon form}, then they have the same solution set
+    \end{enumerate} 
+\end{theorem} 
+
+\begin{remark}
+$(A |b)$ denotes the $m \times (n+1)$ matrix obtained from $A$ by appending $b \in F^{m \times 1}$ to $A \in F^{m \times n}$. 
+\end{remark}
+
+\begin{proof}
+
+(1): Assume $A \in F^{m \times n}, A \neq 0$ , find the first non-zero column of $A$, 
+\[
+    j_1 := \min \{ 1 \leq j \leq n: a_{ij } \neq 0 \text{ for some } i\}
+\]
+
+\begin{itemize}
+    \item If $A_{1 j_1} \neq 0$, multiply the first row by $(A_{1 j_1})^{-1}$ (RO3), i.e. \textit{creating a pivot in the first row} in the $(1, j_1)$ position. We can make every other entry of that column 0 (finite number of RO2).
+    \item If $A_{1 j_1} = 0$, let $i_1 \neq 1$ be the first non-zero entry in the $j_1$ column and exchange row $1$ with row $i_1$ (RO1)
+\end{itemize} 
+
+\[
+\begin{pmatrix}
+0 & \cdots & 0 & 1 & \hdots & \hdots & \hdots \\
+0 & \cdots & 0 & 0 &   &   &   \\
+\vdots &   & \vdots & \vdots & & A_2 & \\
+0 & \cdots & 0 & 0 &   &   &  
+\end{pmatrix}
+\]
+
+
+Repeat the process with $A_2$ to get the result after finitely many steps. Finally, we use RO2 to convert the matrix from echelon form to row-reduced echelon form.  \\
+
+(2): It suffices to show that each elementary row operation does not change the solution set. RO1 and RO3 are obvious. \\
+
+
+For RO2, let
+\begin{align*}
+    (1) & \begin{cases}
+        a_{i1} x_1 + a_{i2} x_2 + \hdots + a_{in} x_n = b_i \\
+        a_{j1} x_1 + a_{j2} x_2 + \hdots + a_{jn} x_n = b_j \\
+    \end{cases} \\
+    (2) & \begin{cases}
+        a_{i1} x_1 + a_{i2} x_2 + \hdots + a_{in} x_n = b_i \\
+        (a_{j1} + a_{i1}) x_1 + (a_{j2} + a_{i2}) x_2 + \hdots + (a_{jn} + a_{in})x_n = b_j \\
+    \end{cases}
+\end{align*}
+
+Suppose $\bm{x}$ satisfies $(1)$, add $\lambda 1.1$ to $1.2$, then $2.2$ holds. Hence $ \bm{x}$ is also a solution for $(2)$. Likewise, if $\bm{x}$ is a solution to $(2)$, do $2.2 - \lambda 1.1$, then $1.2$ also holds. \\
+\end{proof}
+
+\begin{corollary}
+If $A \in F^{m \times n}$ and $m < n$ then $Ax = 0$ has a non-trivial solution.
+\end{corollary} 
+
+\begin{proof}
+Let $\tilde{A}$ be the row-reduced echelon form of $A$, then by theorem above, 
+\[
+  Ax = 0 \iff \tilde{A} x = 0
+\]
+
+The matrix $\tilde{A}$  has $0 \leq r \leq m$ non-zero rows which corresponds to the number of pivots, which is the number of non-free variables.  $\tilde{A}$ has $n - r$ free variables 
+\begin{align*}
+    r & \leq m \\
+    -r & \geq -m \\
+    n - r & \geq n - m > 0
+\end{align*}
+
+$\tilde{A}x = 0$ has a non-trivial solution by taking all free variables say $1$.
+\end{proof}
+
+
+\begin{corollary}
+Let $A \in F^{n \times n}$ and $\tilde{A}$ be the row-reduced echelon form of $A$. Then, $\tilde{A}$ is the identity if and only if $x = 0$ is the unique solution to $Ax = 0$. 
+\end{corollary} 
+
+
+\begin{proof} 
+\\
+$(\implies)$:
+\begin{align*}
+    \tilde{A} = I \implies Ax = 0 & \iff \tilde{A}x = 0 \\
+    & \iff Ix = 0 \\
+    & \iff x = 0
+\end{align*}
+
+$(\impliedby)$: Assume $x = 0$ is the only solution to $Ax = 0$. Then $\tilde{A}$ does not have free variables, $r \geq n$. However, $r \leq n$ always. Hence $r = n$. Therefore $\tilde{A} = I$.
+\end{proof}
+
+\newpage

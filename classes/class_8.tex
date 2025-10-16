@@ -1,0 +1,114 @@
+\section{Class 8}
+
+\subsection{Elementary Matrices and Invertible Matrices}
+
+\begin{definition}
+    (Elementary matrix) An elementary matrix is a matrix that can be obtained from the identity matrix by a single elementary row operation.
+\end{definition}
+
+\begin{example}
+    In $\mathbb{R}^2$, the following are elementary matrices 
+    \[
+    \begin{pmatrix} 0 & 1 \\ 1 & 0  \end{pmatrix} ,
+    \begin{pmatrix} a & 0 \\ 0 & 1  \end{pmatrix} ,
+    \begin{pmatrix} 1 & 0 \\ 0 & a  \end{pmatrix} ,
+    \begin{pmatrix} 1 & 0 \\ a & 1  \end{pmatrix} ,
+    \begin{pmatrix} 1 & a \\ 0 & 1  \end{pmatrix} ,
+    \]
+    for $a \in \mathbb{R}, a \neq 0$
+\end{example}
+
+\begin{theorem}
+    Let $e$ be an elementary row operation and let $E = e(I)$ be the corresponding matrix of size $m \times m$. \\
+    
+    Then $e(A) = EA$ for every $m \times n$ matrix $A$
+\end{theorem}
+
+\begin{proof}
+RO1: \\
+
+RO2: replace row $r$ by row $r$ + $c \times $ row $r$. 
+\[
+    E_{ik} = \begin{cases}
+        \delta_{ik}, i \neq r \\
+        \delta_{rk} + c + \delta_{sk}, i = r \\
+    \end{cases}
+\]
+
+Then 
+\[
+    (EA)_{ij} = \sum\limits_{k = 1}^{m} E_{ik}A_{kj} = \begin{cases}
+        A_{ik},  i \neq r , 
+        A_{rj } + cA_{sj}, i = r
+    \end{cases}
+\]
+
+RO3:  \\
+\end{proof}
+
+\begin{example}
+    Let $e$ be the row operation of adding 2 tiomes the first row to the second row, and 
+    \[
+        A = \begin{pmatrix} 
+          2 & 3 & 4 & 5 \\  
+          1 & 1 & 0 & 1 \\  
+        \end{pmatrix}
+    \]
+    \[
+        e(A) = \begin{pmatrix} 
+          2 & 3 & 4 & 5 \\  
+          5 & 7 & 8 & 11 \\  
+        \end{pmatrix}
+    \]
+
+    Also, 
+    \[
+        E = e(I) = \begin{pmatrix} 1 & 0 \\ 2 & 1 \end{pmatrix} 
+    \]
+    \[
+        EA =  \begin{pmatrix} 1 & 0 \\ 2 & 1 \end{pmatrix} \begin{pmatrix} 
+          2 & 3 & 4 & 5 \\  
+          1 & 1 & 0 & 1 \\  
+        \end{pmatrix} = 
+        \begin{pmatrix} 
+          2 & 3 & 4 & 5 \\  
+          5 & 7 & 8 & 11 \\  
+        \end{pmatrix}
+    \]
+\end{example}
+
+\begin{corollary}
+    Let $A, B \in F^{m \times n}$, $A$ can be transformed into $B$ by a finite series of elementary matrices if and only if $B = PA$, where $P$ is some product of elementary matrices. 
+\end{corollary}
+
+\begin{proof}
+    $\implies$: If one can take $A$ into $B$ with row operations $e_1, e_2, \hdots e_k$, in this order, let $E_i = e_i (I)$, then 
+    \[
+        B = E_k E_{k - 1} E_{k - 2} \hdots E_1 A
+    \]
+    Take 
+    \[
+        P = E_k E_{k - 1} E_{k - 2} \hdots E_1
+    \]
+
+    $\impliedby$ Let $B = E_k E_{k - 1} \hdots E_1 A$. Define 
+    \[
+        e_i(A) := E_i A
+    \]
+    We can follow the row operations dictated by the $E_i$'s to get from $A$ to $B$.
+\end{proof}
+
+\begin{definition}
+    If $A$ can be transformed into $B$ by a series of finitely many row operations, then so can $B$ be transformed into $A$ (i.e. row operations can be reversed), and $A$ and $B$ are called row equivalent matrices.
+\end{definition}
+
+\begin{definition}
+    Let $A \in Matr_n(F)$
+\end{definition}
+
+
+
+
+
+
+

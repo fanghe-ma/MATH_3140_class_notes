@@ -1,0 +1,56 @@
+\section{Class 2}
+
+\subsection{Vector Spaces}
+\begin{definition}
+    (Vecotr Space): A vector space over a field $F$, denoted $V$, is a set with two operations
+    \begin{itemize}
+        \item $+: V \times V \to V, (u, v) \mapsto u + v$
+        \item $\cdot: V \times V \to V, (u, v) \mapsto u \cdot v$
+    \end{itemize}
+    Such that 
+    \begin{itemize}
+        \item (V): $(V, +)$ is a commutative group
+        \item (SM1): $a \cdot (v + w) = a\cdot v + a \cdot w$ for all $a \in F, v, w \in V$
+        \item (SM2): $ (a + b) \cdot v = a\cdot v + b \cdot v$ for all $a, b \in F, v \in V$
+        \item (SM3): $(a \cdot b) \cdot v = a \cdot (b \cdot v)$ for all $a, b \in F, v \in V$
+        \item (SM4): $1 \cdot v = v$ for all $v \in V$
+    \end{itemize}
+\end{definition}
+
+\begin{remark}
+If $V$ is a vector space, we refer to elements of $V$ as vectors. As a corollary to the above axioms, we have the following properties:
+\begin{itemize}
+\item $0 \cdot v = \mathbf{0}$ for $0 \in F$, all $v \in V$
+\item $a \cdot \mathbf{0} = \mathbf{0}$ for all $a \in F$
+\item The additive inverse of $v$ is unique and denoted $-v$
+\item Subtraction is defined as $v - w := v + (-w)$ for all $v, w \in V$
+\item For all $v \in V$, $ (-1) \cdot v = -v$
+    \begin{itemize}
+        \item Proof: $\mathbf{0} = 0 \cdot v = (1 + (-1)) \cdot v = v + (-1) \cdot v$
+    \end{itemize}
+\end{itemize}
+\end{remark}
+
+\subsection{Subspaces}
+
+\begin{definition}
+(Subspace): Let $(V, +)$ be a vector space over $F$, a subset $U \subseteq V$ is a subspace if $U$ is a vector space, denoted
+\[
+  U \leq V
+\]
+\end{definition}
+
+\begin{remark}
+If $W \leq V$, $0_W = 0_V$.
+\end{remark}
+
+
+\begin{proof}
+\begin{align*}
+    0_W &= 0_W + 0_V \\
+    &= 0_W + 0_V + (-0_W) \\
+    &= 0_V
+\end{align*}
+\end{proof}
+
+\newpage

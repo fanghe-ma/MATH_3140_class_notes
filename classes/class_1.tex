@@ -1,0 +1,119 @@
+\section{Class 1}
+
+\subsection{Fields}
+
+\begin{definition}
+(Field): A field $F$ is a set with two binary operations
+
+\[
++: F \times F \to F,\ (x, y) \mapsto x + y
+\]
+
+\[
+\cdot: F \times F \to F,\ (x, y) \mapsto x \cdot y
+\]
+
+that satisfy these properties:
+\begin{itemize}
+\item (A0) existence of additive identity or neutral element: there is $0 \in F$ such that $x + 0 = x$ for all $x \in F$
+\item (A1) additive commutativity: for all $x, y \in F$, $x + y = y + x$
+\item (A2) additive associativity: for all $x, y, z \in F$, $x + (y + z) = (x + y) + z$
+\item (A3) existence of additive inverse: for all $x \in F$ there is $y$ such that $x + y = 0$
+\item (M0) existence of multiplicative identity or neutral element: there is $1 \in F, 1 \neq 0$ such that $x \cdot 1 = 1 \cdot x = x$ for all $x$
+\item (M1) multiplicative commutativity: for all $x, y \in F$, $x \cdot y = y \cdot x$
+\item (M2) multiplicative associativity: for all $x, y, z \in F$, $x \cdot (y \cdot z) = (x \cdot y) \cdot z$
+\item (M3) existence of multiplicative inverse: for all $x \in F, x \neq 0$ there is $y$ such that $x \cdot y = 1$
+\item (D) distributivity: for all $x, y, z \in F$, $(x + y) \cdot z = x \cdot z + y \cdot z$
+\end{itemize}
+\end{definition}
+
+\begin{remark}
+$\{ 0 \}$ is not a field because we require that the multiplicative identity be distinct from 0. If we allowed $0 = 1$, then $F$ is the trivial field, i.e., $F = \{ 0 \}$. \\
+\end{remark}
+
+\begin{remark}
+The smallest field is $F_2 = \{ 0, 1 \}$ with addition and multiplication defined as: \\
+\begin{center}
+    \begin{tabular}{c | c | c}
+        $+$ & $0$ & $1$ \\
+        \hline
+        $0$ & $0$ & $1$ \\
+        $1$ & $1$ & $0$ \\
+    \end{tabular}
+\end{center}
+\begin{center}
+    \begin{tabular}{c | c | c}
+        $\cdot$ & $0$ & $1$ \\
+        \hline
+        $0$ & $0$ & $0$ \\
+        $1$ & $0$ & $1$ \\
+    \end{tabular}
+\end{center}
+\end{remark}
+
+\begin{remark}
+If $(F, +, \cdot)$ is a field, then $0 \cdot x = 0$ for all $x$.  
+\end{remark}
+
+\begin{proof}
+\textbf{Proof}
+\[
+0 \cdot z = (0 + 0) \cdot z = 0 \cdot z + 0 \cdot z
+\]
+
+Adding the additive inverse of $0 \cdot z$ to both sides, we get
+\[
+0 = 0 \cdot z
+\]
+\end{proof}
+
+\begin{remark}
+The additive and multiplicative inverses are unique.
+\end{remark}
+
+\begin{proof}
+Let $x \in F$, suppose $y, z$ are both additive inverses of $x$.
+\begin{align*}
+    y &= y \\
+    y &= y + 0 \\
+    y &= y + (x + z) \\
+    y &= (y + x) + z \\
+    y &= z
+\end{align*}
+\end{proof}
+
+\begin{remark}
+Since the additive and multiplicative inverses are unique, we denote the additive inverse and multiplicative inverse of $x$ respectively as $-x$ and $x^{-1}$.
+\end{remark}
+
+\begin{definition}
+(Group):  A set $G$ with a binary operation $*$ is a group if it has
+\begin{itemize}
+\item existence of inverse
+\item existence of identity
+\item associativity
+\end{itemize}
+\end{definition}
+
+\begin{remark}
+Note that commutativity is not required. A group with commutativity is known as a \textbf{commutative group}.
+\end{remark}
+
+\begin{definition}
+(Field): $(F, +, \cdot)$ is a field if
+\begin{itemize}
+    \item $(F, +)$ is a commutative group
+    \item $(F \setminus \{ 0 \}, \cdot )$ is a commutative group
+    \item distributive properties hold
+\end{itemize} 
+\end{definition}
+
+\newpage
+
+
+
+
+
+
+
+
