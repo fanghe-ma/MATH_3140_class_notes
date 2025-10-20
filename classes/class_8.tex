@@ -103,8 +103,217 @@ RO3:  \\
 \end{definition}
 
 \begin{definition}
-    Let $A \in Matr_n(F)$
+    (Invertible matrices) $A \in Matr_n(F)$  is \textbf{invertible} if there exists $B \in Matr_n(F)$ such that 
+    \[
+        AB = BA = I_n
+    \]
+    in which case $B$ is denoted $A^{-1}$
 \end{definition}
+
+\begin{remark}
+    If $B$ exists, then it is unique. 
+\end{remark}
+
+\begin{proof}
+    Suppose $B, C$ both inverses of $A$
+    \[
+        B = B = IB = (CA) B = C(AB) = C
+    \]
+\end{proof}
+
+\begin{example}
+    Elementary matrices are invertible 
+    \[
+        E_1 = \begin{pmatrix} 
+        \lambda & 0 & 0 \\
+        0 & 1 & 0 \\
+        0 & 0 & 1 \\
+        \end{pmatrix}
+    \]
+    has inverse 
+    \[
+        E_1^{-1} = \begin{pmatrix} 
+        \lambda^{-1} & 0 & 0 \\
+        0 & 1 & 0 \\
+        0 & 0 & 1 \\
+        \end{pmatrix}
+    \]
+    \[
+        E_2 = \begin{pmatrix} 
+        1 & 0 & \lambda \\
+        0 & 1 & 0 \\
+        0 & 0 & 1 \\
+        \end{pmatrix}
+    \]
+    has inverse 
+    \[
+        E_2^{-1} = \begin{pmatrix} 
+        1 & 0 & -\lambda \\
+        0 & 1 & 0 \\
+        0 & 0 & 1 \\
+        \end{pmatrix}
+    \]
+\end{example}
+
+\begin{theorem}
+    (Product of invertible matrices are invertible)
+    Let $A, B \in Matr_n(F)$
+    \begin{enumerate}
+        \item if $A$ invertible, then $(A^{-1})^{-1} = A$
+        \item if $A, B$ invertible, then $AB$ is invertible, and 
+        \[
+            (AB)^{-1} = B^{-1}A^{-1}
+        \]
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+
+    (1) follows from the symmetry of the definition of inverses 
+    \[
+        A (A^{-1}) = A^{-1}A = I
+    \]
+
+    Hence $A$ undoes $A^{-1}$.
+
+    (2) 
+    \begin{align*}
+        (AB)(B^{-1}A^{-1}) &= AB B^{-1} A^{-1} \\ \\
+        &= AI A^{-1}
+    \end{align*}
+\end{proof}
+
+\subsection{Linear Maps}
+
+\subsubsection{Linearity}
+\begin{definition}
+(Linear Maps) Let $V, W$ be $F$-vector spaces. A map $\phi: V \to W$ is linear if 
+\begin{enumerate}
+    \item $\phi(v_1 + v_2) = \phi(v_1) + \phi(v_2)$
+    \item $\phi(cv) = c \phi(v)$
+\end{enumerate} 
+\end{definition}
+
+\begin{remark}
+    If $\phi: V \to W$ is linear, then $\phi(0_V)= 0_W $
+\end{remark}
+\begin{proof}
+    Take $c = 0$, $\phi(0 v) = \phi(0_V) = 0 \phi(v) = 0_W$
+\end{proof}
+
+\subsubsection{Injectivity, surjectivity, and isomorphisms}
+\begin{definition}
+    (Injective) A map $\phi: X \to Y$ between $X$ and $Y$ is said to be \textbf{injective} if for $x, x' \in X$
+    \[
+        \phi(x) = \phi(x') \implies x = x'
+    \]
+\end{definition}
+
+\begin{definition}
+    (Surjective) A map $\phi: X \to Y$ between $X$ and $Y$ is said to be \textbf{surjective}  if for every $y \in Y$, there exists $x \in X$ such that 
+    \[
+    phi(x) = y
+    \]
+\end{definition}
+
+\begin{example}
+    $\phi: \mathbb{R} \to \mathbb{R}, x \mapsto x^2$ is not injective since $\phi(1)= \phi(01)$. \\
+
+    Note also that 
+    \begin{itemize}
+        \item $\phi: \mathbb{R} \to \mathbb{R}_{\geq 0}$ is surjective but not injective
+        \item $\phi_{\geq 0}: \mathbb{R} \to \mathbb{R}_{\geq 0}$ is surjective and injective
+    \end{itemize} 
+\end{example}
+
+\begin{definition}
+    (Bijective) If $\phi: X \to Y$ is injective and surjective, then we say that $\phi$ is bijective.
+\end{definition}
+
+\begin{definition}
+    (Isomorphism) A bijective linear map $\phi: V \to W$ between $F$-vector spaces is called an isomorphism. \\
+
+    When there is an isomorphism between $V$ and $W$, we say that $V, W$ are isomorphic. 
+    \[
+        V \cong W
+    \]
+\end{definition}
+
+\subsubsection{Image and kernels}
+\begin{definition}
+    (Image, kernel) Let $\phi: V \to W$ be a linear map between $F$-vector spaces, the image is defined as 
+    \[
+    \Im(\phi) := \phi(V) = \{ \phi(v) : v \in V \} 
+    \]
+    The kernel is defined as 
+    \[
+        \ker(\phi) = \{ v \in V: \phi(v) = 0 \} 
+    \]
+\end{definition}
+
+\begin{example}     
+    Examples of linear maps, their kernals and images. 
+    \begin{enumerate}
+        \item $\phi: V \to \{ 0 \} , v \mapsto 0$, is a linear map called the zero map
+        \[
+            Im(\phi) = \{ 0 \} , \ker(\phi) = V
+        \]
+        \item $\phi: V \to V, v \mapsto v$ is called the identity map 
+        \[
+        Im(\phi) = V, \ker(\phi) = \{ 0 \} 
+        \]
+        \item $V = \{ a + bx: a, b \in F \} $ for variable $x$ is the set of linear polynomials. $V$ is a subspace of the space of of all linear maps from $F$  to $F$. Let $\phi: V \to W, a + bx \mapsto b$. 
+        $\phi$ is linear because 
+        \begin{align*}
+            \phi((a + bx) + \lambda (c + dx)) = b + \lambda d = \phi(a + bx) + \lambda(c + dx)
+        \end{align*}
+        \[
+            Im(\phi) = F, \ker(\phi) = \{ a :a \in F \}  = \text{ set of constant polynomials}
+        \]
+    \end{enumerate}
+\end{example}       
+
+\begin{proposition}
+    Let $\phi: V \to W$ be a linear map between $F$-vector spaces. Then 
+    \[
+        \ker(\phi) \leq V, Im(\phi) \leq W
+    \]
+\end{proposition}
+
+\begin{proof}
+
+    $\phi(0_v) = 0_w$ hence $0_v \leq W,  0 \in \ker(\phi), 0 \in Im(\phi)$. 
+
+    Take $v_1, v_2 \in \ker(\phi), a \in F$
+    \begin{align*}
+        \phi(v_1 + av_2 ) = \phi(v_1) + a \phi(v_2) = 0 \implies v_1 + a v_2 \in \ker(\phi)
+    \end{align*}
+    Take $w_1, w_2 \in \Im(\phi), a \in F$. We know that there exists $v_1, v_2$ such that 
+    \[
+        \phi(v_1) = w_1, 
+        \phi(v_2) = w_2 
+    \]
+    Hence \[
+        \phi(v_1 + av_2) = \phi(v_1) + a \phi(v_2) = w_1 + aw_2
+    \]
+    \[
+        \implies w_1 + aw_2 \in Im(\phi)
+    \]
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \newpage
 

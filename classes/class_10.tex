@@ -1,2 +1,388 @@
 \section{Class 10}
+
+\subsection{Isomorphisms, cont'd}
+
+\begin{corollary}
+    As a consequence of the isomorphism theorem, then, for $V, W$ finite dimensional $F$-vector spaces, and $S = \{ s_1, s_2, \hdots s_n \} $ a basis for $V$. \\
+
+    A linear map $\phi: V \to W$ is uniquely determined by its values 
+    \[
+        \phi(s_1), \phi(s_2), \hdots \phi(s_n)
+    \]
+    Moreover 
+    \begin{enumerate}
+        \item $\phi$ injective $\iff$ $\phi(s_1), \phi(s_2), \hdots \phi(s_n)$ linearly independent 
+        \item $\phi$ surjective $\iff$ $span(\phi(s_1), \phi(s_2), \hdots \phi(s_n)) = W$
+        \item $\phi$ isomorphism $\iff$ $ \{ \phi(s_1), \phi(s_2), \hdots \phi(s_n) \} $ is a basis for $W$
+    \end{enumerate}
+\end{corollary}
+
+\begin{corollary}
+    Let $V, W$ be finite-dimensional $F$-vector spaces where 
+    \[
+        \dim W = \dim V
+    \]
+    And $\phi: V \to W$ linear. \\
+
+    TFAE 
+    \begin{enumerate}
+        \item $\phi$ injective
+        \item $\phi$ surjective
+        \item $\phi$ isomorphism
+    \end{enumerate}
+\end{corollary}
+
+\begin{proof}
+    We claim that $\phi$ injective if and only if $\phi$ surjective. \\
+
+    $\implies$: If $\phi$ injective, then $ \{ \phi(s_1), \phi(s_2) \hdots \phi(s_n) \} $ is a linear independent set of vectors of size $n$ in $W$ of dimension $n$. Hence it constitutes a basis, and $\phi$ is an isomorphism by the isomorphism theorem. Hence $\phi$ is surjective. \\
+
+    $\impliedby$ If $\phi$ surjective, then by isomorphism theorem, 
+    \[
+        span \left( \phi(s_1), \phi(s_2) \hdots \phi(s_n) \right) = W
+    \]
+    Since $\dim W = n$, $\phi(s_1), \phi(s_2) \hdots \phi(s_n)$ must be linearly independent. By isomorphism theorem, $\phi$ is injective. 
+\end{proof}
+
+\subsection{Dimension formula for linear maps}
+
+\begin{theorem}
+    Let $\phi: V \to W$ be a linear map between $F$ vector spaces. If $ \{ v_1, v_2, \hdots v_m \} $ is a basis for $\ker(\phi)$, and $ \{ \phi(u_1), \phi(u_2) \hdots \phi(u_k) \} $ is a basis for $Im(\phi)$, then 
+    \[
+        \{ v_1, v_2, \hdots v_m, u_1, u_2, \hdots u_k \} 
+    \]
+    is a basis for $V$. 
+\end{theorem}
+
+\begin{proof}
+
+    We first show that the set is spanning.  \\
+
+    Let $v \in V$, then $\phi(v) \in Im(\phi)$. Since $ \{ \phi(u_1) \hdots \phi(u_k) \} $ is a basis for $Im(\phi)$, there exists $a_1, a_2 \hdots a_k \in F$ such that 
+    \[
+        \phi(v) = \sum\limits_{i = 1}^{k} a_i \phi(u_i)
+    \]
+
+    By linearity of $\phi$, 
+    \[
+        \phi \left( v - \sum\limits_{i =1}^{k} a_i u_i \right)  = 0
+    \]
+
+    Hence 
+    \begin{align*}
+        & v - \sum\limits_{i = 2}^{k} a_i u_i \in \ker(\phi) \\
+        \implies & v - \sum\limits_{i = 1}^{k} a_i u_i = \sum\limits_{j=1}^{m} b_j v_j \\
+        \implies & v = \sum\limits_{i = 1}^{k} a_i u_i + \sum\limits_{j = 1}^{m} b_j v_j \\
+        \implies & span \left( u_1, u_2 \hdots u_k, v_1, v_2 \hdots v_n \right)  = V
+    \end{align*} 
+
+    To show linear independence, take $c_i, d_j \in F$ such that 
+    \[
+        \sum\limits_{j = 1}^{m} c_j v_j + \sum\limits_{i = 1}^{k} d_i u_i = 0
+    \]
+
+    Then 
+    \begin{align*}
+        & 0 = \phi(0) = \phi \left( \sum\limits_{ j = 1}^{m} c_j v_j + \sum\limits_{i = 1}^{k} d_i u_i \right)  \\
+        \implies & \sum\limits_{ j = 1}^{m} c_j \phi(v_j) + \sum\limits_{i = 1}^{k} d_i \phi(u_i) = 0 \\
+        \implies & \sum\limits_{ i = 1}^{k} d_i \phi(u_i) = 0 \text{ since $v_j$'s form a basis for the kernel }\\
+        \implies & d_1 = d_2 = \hdots d_k = 0 \text{ by linear independence of $\phi(u_i)$'s}
+    \end{align*}
+
+    Also, 
+    \[
+        \sum\limits_{ j = 1}^{m} c_j v_j = 0 \implies c_1 = c_2 = \hdots c_m = 0 \text{ by linear independence of $v_j$'s}
+    \]
+\end{proof}
+
+\begin{corollary}
+    (Dimension formula): let $\phi: V \to W$  linear, then 
+    \[
+        \dim V = \dim \ker( \phi) + \dim Im(\phi)
+    \]
+\end{corollary}
+
+\begin{definition}
+    Let $\phi: V \to W$ where $V, W$ are $F$-vector spaces. The \textbf{nullity} of $\phi$ is 
+    \[
+        nullity(\phi) = \dim \ker(\phi)
+    \]
+    The rank of $\phi$ is 
+    \[
+        \rank(\phi) = \dim Im(\phi)
+    \]
+\end{definition}
+
+\begin{remark}
+    Another way to express the dimension formula is 
+    \[
+        \dim V = nullity(\phi) + \rank (\phi)
+    \]
+    \[
+        \dim V = \dim null(\phi) + \dim \Im(\phi)
+    \]
+\end{remark}
+
+\subsection{The algebra of endomorphisms} 
+
+\begin{definition}
+    (Ring): A ring is a set $R$ with 2 operations 
+    \begin{align*}
+        +: & R \times R \to R, (a, b) \mapsto a + b \\
+        \cdot: & R \times R \to R, (a, b) \mapsto a \cdot b \\
+    \end{align*}
+    so that 
+    \begin{itemize}
+        \item (R1): $(R, +)$ is a commutative group 
+        \item (R2): multiplication is associative. For all $a, b, c \in R$
+        \[
+            (a \cdot b) \cdot c = a \cdot (b \cdot c)
+        \]
+        \item (R3): distributivity holds 
+        \begin{align*}
+            (a + b) \cdot c &= a \cdot c + b \cdot c \\
+            a \cdot ( b + c) &= a\cdot b a \cdot c
+        \end{align*}
+    \end{itemize}a
+
+    If other than $R1, R2, R3$, 
+    \begin{itemize}
+        \item $R$ satisfies $a \cdot b = b \cdot a$: $R$ is said to be a \textbf{commutative ring} 
+        \item $R$ contains $1$ such that $1 \cdot a = a \cdot 1 = a$, $R$ is said to be a ring with unity, and $1$ is called the \textbf{identity} or \textbf{unit} of $R$.
+    \end{itemize}
+\end{definition}
+
+\begin{definition}
+    An $F$-vector space $(V, +, \cdot)$ with a map $\circ: V \times V \to V$ called multiplication  is said to be an $F$-algebra if 
+    \begin{enumerate}
+        \item $(V, + , \circ)$ is a ring with unit \\
+        \item For all $a \in F, v, w \in V$, 
+        \[
+            a \cdot (v \circ w) + (a \cdot v) \circ w = v \circ (a \cdot w)
+        \]
+    \end{enumerate}
+\end{definition}
+
+\begin{example}
+    Consider the ring of polynomials in the indeterminate $x$ and coefficients in $\mathbb{R}$ 
+    \[
+        \mathbb{R}[x] = \{ a_0 + a_1 x + \hdots a_n x^n : n \in \mathbb{N}_{0}, a_1 \in \mathbb{R}\} 
+    \]
+
+    $\mathbb{R}[x]$ is a ring with unit with the usual addition and multiplication of polynomials, and the unit is the constant polynomial $1$. \\
+
+    Moreover, $\mathbb{R}[x]$ is an $\mathbb{R}-algebra$.
+\end{example}
+
+\begin{remark}
+    For any ring $\mathbb{R}$, if the unit exists, then it is unique. \\
+
+    Assume $1, 1'$ are both units 
+    \begin{align*}
+        1 &= 1' \cdot 1 \text{ since $1'$ unit} \\
+        &= 1' \text{ since $1$ unit}
+    \end{align*}
+\end{remark}
+
+\begin{definition}
+    (Homomorphisms) Let $V, W$ be $F$-vector spaces. The set of all linear maps from $V$ to $W$ (homomorphisms) is denoted
+    \[
+        Hom_F(V,W)
+    \]
+\end{definition}
+
+\begin{definition}
+    (Endomorphisms) Let $V$ be $F$-vector space. The set of all linear maps from $V$ to itself (endomorphism) is denoted
+    \[
+        End_F(V,W)
+    \]
+\end{definition}
+
+\begin{definition}
+    (General linear group) Let $V$ be $F$-vector space. The set of all isomorphisms from $V$ to itself (general linear maps) is denoted
+    \[
+        Gl(V)
+    \]
+\end{definition}
+
+\begin{remark}
+    A general linear map is an endomorphism and a homomorphism 
+    \[
+        Gl(V) \subseteq End_F(V) = Hom_F(V, V)
+    \]
+\end{remark}
+
+\begin{theorem}
+    Let $V, W$ be vector spaces over $F$. Given $T_1, T_2 \in Hom_F(V, V), a \in F$. Define addition and scalar multiplication of linear maps with 
+    \[
+        (T_1 + T_2) v := T_1 (v) + T_2 (v)
+    \]
+    \[
+        (aT_1)(v) = a(T_1(v))
+    \]
+    for all $v \in V$. \\
+
+    Then $T_1 + T_2$ and $aT_1$ are also linear maps from $V$ to $W$. \\
+
+    Hence, $Hom_F(V, W)$ with addition and scalar multiplication is a vector space over $F$. \\
+\end{theorem}
+
+\begin{proof}
+    Left as exercise
+\end{proof}
+
+\begin{remark}
+    Let $F$ be a field, $V, W$ $F$-vector spaces. Then 
+    \begin{enumerate}
+        \item $Hom_F(V, W)$ is avector space 
+        \item $End_F(V)$ is an $F$-algebra with composition of linear maps as multiplication 
+        \item $Gl(V)$  is a group with respect to composition of homomorphisms. 
+    \end{enumerate}
+
+    Note that once we restrict to the set of invertible linear maps, we have the existence of inverses and hence group properties.
+\end{remark}
+
+\subsection{Coordinates and matrices} 
+
+For this section, let $S = (s_1, s_2 \hdots s_n)$ denote an \textbf{ordered basis} to emphasize that order matters. 
+
+\subsubsection{Coordinates and change of basis}
+
+\begin{definition}
+    (Coordinates) Let $S = (s_1, s_2, \hdots s_n)$ be a basis for $V$. Then, for arbitrary $v \in V$, $v$ can be uniquely written as 
+    \[
+        v = \sum\limits_{i = 1}^{n} a_i s_i
+    \]
+    The $a_i$'s are called the \textbf{coordinates} of $v$ with respect to $S$. We denote this 
+    \[
+        [v]_S = \begin{bmatrix} 
+            a_1 \\ a_2 \\ \vdots \\ a_n
+        \end{bmatrix}
+    \]
+
+    The map $\gamma_S : V \to F^n$ is called the \textbf{coordinate representation} of $V$ with respect to $S$ 
+    \begin{align*}
+        \gamma_S : V &\to F^n \\
+        v & \mapsto [v]_S
+    \end{align*}
+\end{definition}
+
+\begin{remark}
+    The coordinate representation map is an isomorphism.
+\end{remark}
+
+\begin{proof}
+    Proof that $\gamma_S$ is linear: left as exercise. \\
+
+    Note that for $1 \leq i \leq n$
+    \[
+        \gamma_S(s_i) = e_i \in F^n
+    \]
+
+    The basis $s_1, s_2, \hdots s_n$ is mapped to the standard basis $e_1, e_2, \hdots e_n$ of $F^n$. By the isomorphism theorem, $\gamma_S$ is an isomorphism.
+\end{proof}
+
+\begin{proposition}
+    Let $V$ be an $F$-vector space. Let $S = (s_1, s_2, \hdots s_n)$, $T = (t_1, t_2, \hdots t_n)$ be bases of $V$. \\
+
+    \begin{enumerate}
+        \item There are uniquely determined $c_{ij}, d_{ij} \in F$  so that 
+        \[
+            s_j = \sum\limits_{i = 1}^{n} c_{ij} t_i
+        \]
+        \[
+            t_i = \sum\limits_{j = 1}^{n} d_{ji} s_j
+        \]
+        \item For $v \in V$ arbitrary,  there exists some $a_j$'s and $b_i$'s such that 
+        \[
+            v = \sum\limits_{j = 1}^{n} a_j s_j = \sum\limits_{i = 1}^{n} b_i t_i
+        \]
+        The coordinates are related by 
+        \[
+            b_i = \sum\limits_{i = 1}^{n} c_{ij} a_j
+        \]
+        \[
+            a_j = \sum\limits_{j = 1}^{n} d_{ji} b_i
+        \]
+        \item \[
+            \sum\limits_{j = 1}^{n} c_{kj}d_{ji} = \delta_{ki} = \begin{cases}
+                1 \text{ if } k = i \\
+                0 \text{ otherwise }
+            \end{cases}
+        \]
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    (1): follows immediately from the fact that $S, T$ are bases for $V$. \\
+
+    (2): Writing $v$ in terms of $s_j$
+    \begin{align*}
+        v &= \sum\limits_{j = 1}^{n} a_j s_j \\
+        &= \sum\limits_{j = 1}^{n} a_j \sum\limits_{i = 1}^{n} c_{ij} t_i \text{ by substituting expression for $s_j$} \\
+        &= \sum\limits_{i = 1}^{n} \left( \sum\limits_{j = 1}^{n}  c_{ij} a_j\right) t_i
+    \end{align*}
+    On the other hand, 
+    \[
+        v = \sum\limits_{i = 1}^{n} b_i t_i
+    \]
+    By unique representation, 
+    \[
+        b_i = \sum\limits_{j = 1}^{n}  c_{ij}a_j
+    \] 
+
+    Similarly, starting from 
+    \begin{align*}
+        v &= \sum\limits_{ i = 1}^{n} b_i t_i \\
+        &= \sum\limits_{i = 1}^{n} b_i \left( \sum\limits_{i = 1}^{n} d_{ji}s_j \right)  \\
+        &= \sum\limits_{j = 1}^{n} \left( \sum\limits_{i = 1}^{n} d_{ji}b_i \right) s_j
+    \end{align*}
+
+    By unique representation 
+    \[
+        a_j = \sum\limits_{i = 1}^{n} d_{ji}b_i
+    \]
+
+    Proof of (3): 
+    \begin{align*}
+        s_j &= \sum\limits_{i = 1}^{n} c_{ij}t_i \\
+        &= \sum\limits_{i = 1}^{n}  c_{ij} \left( \sum\limits_{k = 1}^{n} d_{ki} s_k\right)  \\
+        &= \sum\limits_{k = 1}^{n}  \left( \sum\limits_{i = 1}^{n} d_{ki} c_{ij}\right)  s_k
+    \end{align*}
+
+    At the same time 
+    \[
+        s_j = \sum\limits_{k = 1}^{n} \delta_{kj} s_k
+    \]
+    Hence, by unique representation 
+    \[
+        \sum\limits_{i = 1}^{n} d_{ki} c_{ij} = \delta_{kj}
+    \]
+    
+    
+    
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \newpage

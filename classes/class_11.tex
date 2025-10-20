@@ -1,2 +1,160 @@
 \section{Class 11}
+
+\begin{definition}
+    (Change of basis matrix)
+    \begin{align*}
+        C_{S \to T} = \begin{pmatrix} 
+        c_{11}  & c_{12} & \hdots & c_{1n} \\
+        c_{21}  & c_{22} & \hdots & c_{2n} \\
+        \vdots & \vdots \ddots & \vdots \\
+        c_{n1} & c_{n2} & \hdots & c_{nn}
+        \end{pmatrix}
+    \end{align*} 
+    Where the $i$-th column is the coordinates of $s_i$ with respect to basis $T$, is called the \textbf{basis change matrix} from $S$ to $T$
+\end{definition}
+
+\begin{remark}
+    If $v= \sum\limits_{ j = 1}^{n} a_j s_j = \sum\limits_{i = 1}^{n}  b_i t_i$ then 
+    \[
+        [v]_T = C_{S \to T} [v]_S
+    \]
+    Similarly, if $C_{T \to S} = [d_{ij}]$  where 
+    \[
+        t_j = \sum\limits_{i = 1}^{n} d_{ij}s_i
+    \]
+    then 
+    \[
+        [v]_S = C_{T \to S} [v]_T
+    \]
+
+    Therefore, the proposition from Class 10 can be rephrased as 
+    \[
+        [v]_T = C_{S \to T} [v]_S, [v]_S = C_{ T \to S} [v]_T
+    \]
+    and 
+    \[
+        C_{S \to T} C_{T \to S} = I = C_{T \to S} C_{S \to T}
+    \]
+\end{remark}
+
+\subsection{Representation of linear maps}
+
+\begin{definition}
+    Let $V, W$ be $F$-vector spaces, $S = (s_1, s_2, \hdots s_n)$ basis for $V$. $T = (t_1, t_2, \hdots t_m)$ basis for $W$. Let $\phi:V \to W$ linear. \\
+
+    There are uniquely determined coefficients $d_{ij} \in F$ such that 
+    \[
+        \phi(s_j ) = \sum\limits_{i = 1}^{m} d_{ij } t_i
+    \]
+    for all $1 \leq j \leq n$. \\
+
+    The matrix 
+    \[
+        [\phi]_{S \to T} = [d_{ij}]_{1 \leq i \leq m, 1 \leq j \leq n}
+    \]
+
+    is the $m \times n$ matrix representing $\phi$ with respect to bases $S$ and $T$.
+\end{definition}
+
+\begin{remark}          
+    If $\phi = Id_{V}: V \to V, v \mapsto v$, and $S, T$ bases for $F$
+    \[
+        [Id_V]_{S \to T} = C_{S \to T}
+    \]
+\end{remark}            
+
+\begin{proposition}
+    Let $V, W$ be $F$-vector spaces.  \\
+
+    Let $[v]_S = \gamma_S (v)$ be the coordinate representation of $v$ with respect to $S$. \\
+    Let $[\phi(v)]_T = \gamma_T (\phi(v))$ be the coordinate representation of $\phi(v)$ with respect to $T$, then 
+    \[
+        \left[ \phi(v) \right]_T = \left[ \phi \right]_{S \to T} \left[ v \right]_S
+    \]
+\end{proposition}
+\begin{proof}
+    Let 
+    \[
+        v = \sum\limits_{i = 1}^{n} a_j s_j \in V.
+    \]
+    Let $d_{ij}$ be defined by 
+    \[
+        \phi(s_j) = \sum\limits_{i = 1}^{m} d_{ij}t_i
+    \]
+    then
+    \begin{align*}
+        \phi(v) &= \sum\limits_{j = 1}^{n}  a_j \phi(s_j) \\
+        &= \sum\limits_{j = 1}^{n}  a_j \sum\limits_{i = 1}^{m} d_{ij} t_i \\
+        &= \sum\limits_{i = 1}^{m} \left(  \sum\limits_{ j = 1}^{n} d_{ij}a_j \right)  t_i
+    \end{align*}
+
+    Therefore 
+    \begin{align*}
+        \left[  \phi(v)\right]_T &= \begin{bmatrix}
+            \sum\limits_{j = 1}^{n} d_{ij}a_j \\
+            \sum\limits_{j = 1}^{n} d_{2j}a_j \\
+            \vdots \\
+            \sum\limits_{j = 1}^{n} d_{mj}a_j \\
+        \end{bmatrix} \\
+        &= \left[ d_{ij} \right] \begin{bmatrix} 
+            a_1 \\ a_2 \\ \vdots \\ a_n
+        \end{bmatrix} \\ 
+        &= \left[ \phi \right]_{S \to T} \left[ v \right]_S
+    \end{align*}
+\end{proof}
+
+\begin{theorem}
+    Let $V, W$ be $F$-vector spaces with $S = (s_1, s_2, \hdots s_n)$, $T = (t_1, t_2, \hdots t_n)$ bases respectively. \\
+
+    The map 
+    \begin{align*}
+        D_{S \to T} : Hom_F(V, W) &\to F^{m \times n} \\
+        \phi & \mapsto D_{S \to T} (\phi) = \left[ \phi \right]_{S \to T}
+    \end{align*}
+    is an isomorphism of $F$-vector spaces.
+\end{theorem}
+
+\begin{proof} 
+    We want to show that $D_{S \to T}$ is linear and bijective. \\
+
+    \textbf{(1) Linearity}:  \\
+    Let $\phi, \psi \in Hom_F(V, W)$  and $c \in F$. \\
+
+    Let $a_{ij}$ such that $\phi(s_j) = \sum\limits_{i = 1}^{n} a_{ij} t_i$. Let $b_{ij}$ such that $\psi(s_j) = \sum\limits_{i = 1}^{n} b_{ij} t_i$ \\
+
+    Then, 
+    \begin{align*}
+        \left( \phi + c \psi \right)  (s_j) &= \phi(s_j) + c \psi(s_j) \\
+        &= \sum\limits_{i = 1}^{n}  (a_{ij} + cb_{ij}) t_i
+    \end{align*}
+    Hence 
+    \begin{align*}
+        \left[ \phi + c \psi \right]_{S \to T} &= \left[ \left( a_{ij }  + cb_{ij}\right)  \right]_{ij} \\
+        &= \left[ a_{ij}  \right]  + c \left[ b_{ij}  \right] \\
+        &= \left[ \phi \right]_{S \to T} + c \left[ \psi \right]_{S \to T}
+    \end{align*}
+    Hence $D_{S \to T}$ is linear. \\
+
+    \textbf{(2): Injectivity}
+    $D_{S \to T}$ is injective because if $ \phi, \psi \in Hom_F(V, W)$ , such that 
+    \[
+        \left[ \phi \right]_{S \to T} = \left[ \psi \right]_{S \to T}
+    \]
+    Then
+    \[
+        \phi(s_j) = \psi(s_j)
+    \]
+
+    Since $S$ is a basis and $\phi, \psi$ linear, this implies $\phi = \psi$
+    
+\end{proof}
+
+
+
+
+
+
+
+
+
 \newpage

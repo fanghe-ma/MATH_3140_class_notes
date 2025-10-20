@@ -1,3 +1,252 @@
 \section{Class 9} 
 
+\subsection{Isomorphism, cont'd}
+
+\begin{proposition}
+    Let $V, W$ be $F$-vector spaces and $\varphi: V \to W$ linear. Then 
+    \begin{enumerate}
+        \item $\varphi$ injective $\iff$ $Im(\varphi) = W$
+        \item $\varphi$ surjective $\iff$ $\ker(\varphi) = \{ 0 \} $
+        \item $\varphi$ is bijective $\iff$ $\Im(\varphi) = W$ and $\ker(\varphi) = \{ 0 \} $
+    \end{enumerate} 
+\end{proposition}
+
+\begin{proof}
+
+    1) By definition. \\
+
+    3) By consequence of (1) and (2) \\
+
+    2) $\implies$ Assume $\varphi$ injective, then $v_1, v_2$ distinct implies $\varphi(v_1) \neq \varphi(v_2)$. Since $\varphi$ linear, we know that $\varphi(0) = 0$. \\
+
+    $\impliedby$ Assume $\ker(\varphi) = \{ 0 \} $, consider $v_1, v_2$ such that $\varphi(v_1) = \varphi(v_2)$. 
+    \begin{align*}
+        & \varphi(v_1) - \varphi(v_2) = 0 \\
+        \implies & \varphi(v_1 - v_2) = 0 \\
+        \implies & v_1 - v_2 \in \ker(\varphi) \\
+        \implies & v_1 - v_2 = 0 \\
+        \implies & v_1 = v_2
+    \end{align*}
+\end{proof}
+
+\begin{proposition}
+    Let $U, V, W$ be vector spaces over $F$, and 
+    \[
+        \varphi: U \to V, \psi V \to W
+    \]
+    both linear. \\
+
+    Then, 
+    \begin{enumerate}
+        \item $\psi \circ \varphi$ is linear where $\psi \circ \varphi(u) = \psi( \varphi(u))$ 
+        \item If $\varphi$ is injective, then its inverse $\varphi^{-1}$ is also linear. 
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    Left as exercise.
+\end{proof}
+
+\begin{theorem}
+    (Isomorphism theorem) Let $V, W$ be finite dimensional vector spaces over $F$, and $S = \{ s_1, s_2, \hdots s_n \} $ a basis for $V$. \\
+
+    let $t_1, t_2, \hdots t_n \in W$ not necessarily distinct. Then, there exists a \textbf{unique linear map} $\varphi: V \to W$ such that 
+    \[
+        \varphi(s_i) = t_i
+    \]
+    for all $i = 1, 2, \hdots n$. 
+
+    Moreover
+    \begin{enumerate}
+        \item $\varphi$ is surjective $\iff span \{t_1, t_2, \hdots t_n \} = W$  
+        \item $\varphi$ is injective  $\iff t_1, t_2 \hdots t_n $ linearly independent in $W$ 
+        \item $\varphi$ is an isomorphism $\iff \{ t_1, t_2, \hdots t_n \} $ is a basis. 
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+
+
+We first show existence and uniqueness of $\varphi$. Define 
+\begin{align*}
+    \varphi: &V \to W \\
+    & \sum\limits_{i = 1}^{n} a_i s_i \mapsto \sum\limits_{i = 1}^{n} a_i t_i
+\end{align*}
+Since $\{ s_1, s_2, \hdots s_n \} $ is a basis, every vector of $U$ is uniquely written as $v = \sum\limits_{i = 1}^{n} a_i s_i$ and $\varphi$ is well defined. \\
+
+To show that $\varphi$ is linear, 
+\begin{align*}
+    & \varphi \left( \sum\limits_{i = 1}^{n} a_i s_i + \sum\limits_{i = 1}^{n}  b_i s_i \right)  \\
+    = & \varphi \left( \sum\limits_{i = 1}^{n} (a_i + b_i) s_i\right)  \\
+    = & \sum\limits_{i = 1}^{n} (a_i + b_i) t_i \\
+    = & \sum\limits_{i = 1}^{n} a_i t_i + \sum\limits_{i = 1}^{n} b_i t_i \\
+    = & \varphi \left( \sum\limits_{i = 1}^{n} a_i s_i \right)  + \varphi \left( \sum\limits_{i = 1}^{n} b_i t_i \right)
+\end{align*}
+Also
+\begin{align*}
+    & \varphi \left( c \sum\limits_{i = 1}^{n} a_i s_i \right)  \\
+    = & \varphi \left( \sum\limits_{ i = 1}^{n} (ca_i) s_i \right)  \\
+    = & \sum\limits_{i = 1}^{n} (ca_i) t_i \\
+    = & c \sum\limits_{i = 1}^{n} a_i t_i \\
+    = & c \varphi \left( \sum\limits_{ i = 1}^{n} a_i s_i \right) 
+\end{align*}
+
+To show that $\varphi$ is unique, note that for any $a_1, a_2, \hdots a_n$, 
+\[
+    \varphi \left( \sum\limits_{i = 1}^{n} a_i s_i \right)  = \sum\limits_{i = 1}^{n} a_i t_i
+\]
+
+\textbf{Proof of (1)} \\
+$\impliedby$: Assume $span \left( t_1, t_2, \hdots t_n \right) = W$. Let $w \in W$, WTS there exists $v \in V$ such that $\varphi(v) = w$. \\
+
+Since we know that $t_1, \hdots t_n$ spans $W$, there exists $b_1, b_2, \hdots b_n$ such that 
+\[
+    w = \sum\limits_{i = 1}^{n} b_i t_i
+\]
+
+Define $v$ to be 
+\[
+    v : = \sum\limits_{i = 1}^{n} b_i s_i \in V
+\]
+
+Then 
+\begin{align*}
+    \varphi(v) = \varphi \left( \sum\limits_{ i = 1}^{n} b_i s_i \right)  = \sum\limits_{i = 1}^{n} b_i t_i = w
+\end{align*}
+
+$\implies$ Assume $\varphi$ surejective, for any $w \in W$, WTS that $w \in span \left( t_1, t_2, \hdots t_n \right) $. \\
+
+Since $\varphi$ surjective, we know that there is some $v$ such that $\varphi(v) = w$> \\
+
+Since $s_1, s_2, \hdots s_n$ is a basis, there exists $a_1, a_2, \hdots a_n$ such that 
+\[
+    v = \sum\limits_{i = 1}^{n} a_i s_i
+\]
+
+Apply $\varphi$
+\[
+    w = \varphi(v) = \sum\limits_{i =1 }^{n} a_i t_i \in span \left( t_1, t_2, \hdots t_n \right) 
+\]
+
+\textbf{Proof of (2)}: 
+
+$\implies$ Suppose $\varphi$ injective, WTS that $t_1, t_2, \hdots t_n$ is linearly independent. \\
+
+Take $c_1, c_2, \hdots c_n$ such that 
+\[
+    c_1 t_1 + c_2 t_2 + \hdots c_n t_n = 0
+\]
+
+Define $v$ as 
+\[
+    v : = \sum\limits_{i = 1 }^{n}  c_i s_i
+\]
+Then
+\[
+    \varphi(v) = \varphi \left( \sum\limits_{i = 1}^{n} c_i s_i \right)  = \sum\limits_{i = 1}^{n} c_i t_i = 0
+\]
+
+Hence 
+\[
+    v = \sum\limits_{i =1}^{n} c_i s_i \in \ker(\varphi)
+\]
+
+By injectivity, 
+\[
+    \sum\limits_{i = 1}^{n} c_i s_i = 0
+\]
+
+By linear independence of $s_i$, 
+\[
+    c_1 = c_2 = \hdots c_n = 0
+\]
+
+$\impliedby$: Assume $t_1, t_2, \hdots t_n$ linearly independent, WTS $\ker( \varphi) = \{ 0 \} $. \\
+
+Take $v \in \ker(\varphi)$ such that $\varphi(v) = 0$. Since $v \in V$, we know that 
+\[
+    v = \sum\limits_{i = 1}^{n} a_i s_i
+\]
+for some $a_1, a_2 \hdots a_n$. \\
+
+Hence
+\[
+    0 = \varphi(v) = \varphi \left( \sum\limits_{i = 1}^{n} a_i s_i \right)  = \sum\limits_{i = 1}^{n} a_i t_i
+\]
+
+By linear independence of $t_1, t_2, \hdots t_n$, $a_1 = a_2 = \hdots = a_n = 0$. Hence $v = 0$. \\
+
+Since $v$ was an arbitrary element of $\ker( \varphi)$, we know that 
+\[
+    \ker(\varphi) = \{  0 \} 
+\]
+
+\textbf{Proof of (3)}: follows from 1 and 2.
+\end{proof}
+
+\begin{theorem}
+    Let $V, W$ be finite-dimensional vector spaces over $F$. 
+    \[
+        \dim V = \dim W \iff V \cong W
+    \]
+\end{theorem}
+
+\begin{proof}
+
+$\implies$: Take $\{ s_1, s_2, \hdots s_n \} $ a basis for $V$, $\{ t_1, t_2 \hdots t_n \} $ a basis for $W$. By the isomorphism theorem, the map that takes $s_i$ to $t_i$ is an isomorphism. \\
+
+$\impliedby$: Suppose $V \cong W$, let $\Phi: V \to W$ be an isomorphism, and let $\dim V = n$. \\
+
+$V$ has a basis of $n$ elements, say $s_1, s_2, \hdots s_n$. \\
+
+Define $t_1, t_2 \hdots t_n$ 
+\[
+    t_i := \Phi(s_i)
+\]
+
+The isomorphism theorem guarantees that $t_1, t_2 \hdots t_n$ is a basis for $W$, so $\dim W = n$. 
+\end{proof}
+\begin{corollary}
+    If $V$ is a vector space and $\dim W = n$, then 
+    \[
+        V \cong F^n
+    \]
+\end{corollary}
+
+\begin{example}
+    Let 
+    \[
+        \mathcal{P}_2 = \{ a_0 + a_1 x + a_2 x^2: a_0, a_1 , a_2 \in \mathbb{R} \} 
+    \]
+    A basis for $\mathcal{P}_2$ is $ \{ 1, x, x^2 \} $.  \\
+
+    Define 
+    \begin{align*}
+        \varphi: \mathcal{P}_2 &\to \mathbb{R}^3 \\
+        1 &\mapsto e_1 \\
+        x &\mapsto e_2 \\
+        x^2 &\mapsto e_3 \\
+    \end{align*}
+
+    Then 
+    \[
+        \mathcal{P}_2 \cong \mathbb{R}^3
+    \]
+
+    Furthermore, isomorphism theorem tells us that there exists a unique $\varphi$ that does this.
+\end{example}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \newpage
