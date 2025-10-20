@@ -39,8 +39,10 @@
 
 \subsection{Representation of linear maps}
 
-\begin{definition}
-    Let $V, W$ be $F$-vector spaces, $S = (s_1, s_2, \hdots s_n)$ basis for $V$. $T = (t_1, t_2, \hdots t_m)$ basis for $W$. Let $\phi:V \to W$ linear. \\
+\begin{definition} 
+    (Matrix representation of linear maps) \\
+
+    Let $V, W$ be $F$-vector spaces, $S = (s_1, s_2, \hdots s_n)$ basis for $V$. $T = (t_1, t_2, \hdots t_m)$ basis for $W$. Let $\phi:V \to W$ linear. \\k
 
     There are uniquely determined coefficients $d_{ij} \in F$ such that 
     \[
@@ -145,9 +147,157 @@
         \phi(s_j) = \psi(s_j)
     \]
 
-    Since $S$ is a basis and $\phi, \psi$ linear, this implies $\phi = \psi$
-    
+    Since $S$ is a basis and $\phi, \psi$ linear, this implies $\phi = \psi$ \\
+
+    \textbf{(3) Surjectivity}: Given $A = \left[ a_{ij} \right] \in F^{m \times n}$, the isomorphism theorem guarantees the existence of a $\varphi$
+    \[
+        \varphi: V \to W, \varphi(s_j) = w_j
+    \]
+
+    Where
+    \[
+        w_j = \sum\limits_{i = 1}^{n} a_{ij}   t_i
+    \]
+    And 
+    \[
+        \left[ \varphi \right]_{S \to T} = A
+    \]
 \end{proof}
+
+\begin{remark}
+    By the theorem above, 
+    \[
+        \left( D_{S \to T} \right)^{-1} : F^{m \times n} \to Hom_F(V, W)
+    \]
+    is isomorphism.
+\end{remark}
+
+\begin{remark}
+    Let $E^{kl} \in F^{m \times n}$ be the matrix that has all entries zero except at the $(k, l)$ entry for $1 \leq k \leq m, 1 \leq l \leq n$.  \\
+
+    By isomorphism theorem, 
+    \[
+        \{ (D_{S \to T})^{-1} (E_{kl}) \}_{1 \leq k \leq m,\ 1 \leq l \leq n}
+    \]
+    is a basis for $Hom_F(V, W)$.
+\end{remark}
+
+\begin{corollary}
+    if $\dim V = n, \dim W = m$,, then 
+    \[
+        \dim \left( Hom_F(V, W) \right) = mn
+    \]
+\end{corollary}
+\begin{remark}
+    \[
+    \left( D_{S \to T} \right) (E_{kl}) (s_j) = \begin{cases}
+        0 \text{ if } j \neq l \\
+        s_k \text{ if } j = l
+    \end{cases}
+    \]
+\end{remark}
+
+\begin{theorem}
+    Let $V, W, X$ have basis $S, T, U$ respectively. Let 
+    \[
+        \phi \in Hom_F(V, W), \psi \in Hom_F(W, X)
+    \]
+    Then 
+    \[
+        \left[ \psi \circ \phi \right]_{S \to U} = \left[ \psi \right]_{T \to U} \left[ \phi \right]_{S \to T}
+    \]
+\end{theorem}
+
+\begin{proof}
+    Suppose 
+    \begin{align*}
+        S &= \left( s_1, s_2, \hdots s_n \right)  \\
+        T &= \left( t_1, t_2, \hdots t_m \right)  \\
+        U &= \left( u_1, u_2, \hdots u_l \right)
+    \end{align*}
+
+    Let $\phi(s_j) = \sum\limits_{i=1}^{n} a_{ij} t_i $, so that 
+    \[
+        \left[ \phi \right]_{S \to T} = \left[ a_{ij} \right] 
+    \]
+    Let $\psi(t_j) = \sum\limits_{i = 1}^{l} b_{ij} u_i$, so that 
+    \[
+        \left[ \psi \right]_{T \to U} = \left[ b_{ij} \right] 
+    \]
+
+    \begin{align*}
+        \left( \psi \circ \phi \right) (s_j) &= \psi \left( \phi(s_j) \right)  \\
+        &= \psi \left( \sum\limits_{k = 1}^{m} a_{kj} t_k  \right)  \\
+        &= \sum\limits_{k = 1}^{m}  a_{kj} \psi \left( t_k \right)  \\
+        &= \sum\limits_{k= 1}^{m}  a_{kj} \left( \sum\limits_{i = 1}^{l}  b_{ik} u_i\right)  \\
+        % &= \psi \circ \phi(s_j) \\
+        &= \sum\limits_{i = 1}^{l} \left( \sum\limits_{k = 1}^{m} b_{ik} a_{kj} \right) u_i
+    \end{align*} 
+    Hence, by definition of matrix multiplication
+    \[
+        \left[ \psi \circ \phi \right]_{S \to U} = = \left[ \sum\limits_{k = 1}^{m} b_{ik} a_{kj}\right]_{ij}  \left[ \psi \right] \left[ \phi \right] 
+    \]
+\end{proof}
+
+\begin{corollary}
+    Let $V$ be a $F$-vector space with bases $S, \tilde{S}$. Let $W$ be a $F$-vector space with bases $T \tilde{T}$. Let $\phi : V \to W$ linear.  
+
+    Then 
+    \[
+        \left[ \phi \right]_{\tilde{S} \to \tilde{T}} = C_{T \to \tilde{T}} \left[ \phi \right]_{S \to T} C_{ \tilde{S} \to S}
+    \]
+\end{corollary}
+
+\begin{proof}
+    \begin{align*}
+        & C_{T \to \tilde{T}} \left[ \phi \right]_{S \to T} C_{\tilde{S} \to S} \\
+        =& \left[ Id_W \right]_{T \to \tilde{T}} \left[ \phi \right]_{S \to T} \left[ Id_V \right]_{\tilde{S} \to S} \\
+        =& \left[ Id_W \circ \phi \circ Id_V \right]_{\tilde{S} \to \tilde{T}} \\
+        =& \left[ \phi \right]_{\tilde{S} \to \tilde{T}}
+    \end{align*}
+\end{proof}
+
+\begin{remark}
+    Say $\dim V = n$ and $S$ is a basis for $V$. 
+    
+    $End_F(V)$ is an $F$-algebra with composition as multiplication. $Mat_n(F)$ is also al $F$-algebra with matrix multiplication as multiplication. 
+\end{remark}
+\begin{proof}
+    From theorem, 
+    \begin{align*}
+        D_S : End_n(V) &\to Mat_n(F) \\
+         \phi &\mapsto \left[ \phi \right]_{S \to S}
+    \end{align*}
+    is an isomorphism of $F$-vector spaces.  \\
+
+    The above theorem says that 
+    \[
+        D_S \left( \psi \circ \phi \right)  = D_S \left( \psi \right)  \cdot D_S \left(  \phi \right) 
+    \]
+    and $D_S$ is an isomorphism of $F$-algebra. 
+\end{proof}
+\begin{remark}
+    Say $\dim V = n$ and $S$ is a basis for $V$. 
+    \begin{align*}
+        D_S: Gl(V) &\to Gl(F) = \{ A \in Mat_n(F): A \text{ invertible} \}  \\
+        \phi &\mapsto D_s( \phi) = \left[ \phi \right]_{S \to S}
+    \end{align*}
+    $D_S$ is a group isomorphism.
+\end{remark}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

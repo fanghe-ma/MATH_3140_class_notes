@@ -1,2 +1,81 @@
 \section{Class 12}
+
+\begin{definition}
+    (rank) The (column) rank of $A \in \mathbb{R}^{m \times n}$ is the maximal number of linearly independent columns, i.e. the dimension of the space spanned by column vectors in $\mathbb{R}^m$. \\
+
+    The row rank of $A$ is defined as the number of linearly independent rows, i.e. the dimension of the space spanned by row vectors in $\mathbb{R}^n$.
+\end{definition}
+
+\begin{remark}
+    Let $A \in F^{m \times n}$, $V, W$ $F$-vector spaces with $S = (s_1, s_2, \hdots s_n)$ asis for $V$, $T = (t_1, t_2, \hdots t_m)$ basis for $W$. \\
+
+    Let $ \phi: V \to W$ linear such that 
+    \[
+        \left[ \phi \right]_{S \to T} = A
+    \]
+
+    \begin{align*}
+        \dim \left( Im( \phi) \right)  &= \dim \left( span(\phi(s_1), \phi(s_2), \hdots \phi(s_n)) \right)  \\
+        &= \dim span( \text{columns of } A) \\
+        &= \rank(A)
+    \end{align*}
+    One has 
+    \[
+        \rank \left( \phi \right)  = \rank(A) 
+    \]
+\end{remark}
+
+\begin{corollary}
+    If $A, B$ are equivalent matrices, 
+    \[
+        \rank(A) = \rank(B)
+    \]
+\end{corollary}
+\begin{proof} To be updated
+\end{proof}
+
+\begin{theorem}     
+    Every $A \in Mat_{m \times n}(F)$ is equivalent to exactly one matrix of the form 
+\[ 
+\begin{bmatrix}
+    1 & 0 & 0 & \hdots & 0 & 0 & \hdots & 0 \\
+    0 & 1 & 0 & \hdots & 0 & 0 & \hdots & 0 \\
+    0 & 0 & 1 & \hdots & 0 & 0 & \hdots & 0 \\
+    \vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \vdots \\
+    0 & 0 & 0 & \hdots & 1 & 0 & \hdots & 0 \\
+    0 & 0 & 0 & \hdots & 0 & 0 & \hdots & 0 \\
+    0 & 0 & 0 & \hdots & 0 & 0 & \hdots & 0 \\
+\end{bmatrix} = \left[
+    \begin{array}{c | c}
+    I_r & 0 \\
+    \hline
+    0 & 0
+    \end{array}
+\right]
+\]
+where $r = \rank(A)$, and this form is known as the \textbf{rank-normal} form.
+\end{theorem}       
+
+\begin{proof}       
+    Let $B^n$ be the standard basis for $\mathbb{R}^n$, $B^m$ be the standard basis for $\mathbb{R}^m$. 
+
+    Consider $\phi: \mathbb{R}^n \to \mathbb{R}^m$ such that 
+    \[
+        \left[ \phi \right]_{B^n \to B^m} = A
+    \]
+    Let $S_2$ be a basis for $\ker( \phi)$. Extend $S_2$ to be a basis for $\mathbb{R}^n$. \\
+
+    \[
+        \tilde{S} = \{s_1, s_2, \hdots s_r, s_{r + 1}, \hdots s_n \} 
+    \]
+    
+\end{proof}     
+
+
+
+
+
+
+
+
 \newpage
