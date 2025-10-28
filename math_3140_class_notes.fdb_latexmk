@@ -1,15 +1,15 @@
 # Fdb version 4
-["bibtex math_3140_class_notes"] 1760993106 "math_3140_class_notes.aux" "math_3140_class_notes.bbl" "math_3140_class_notes" 1760993341 0
+["bibtex math_3140_class_notes"] 1761620984 "math_3140_class_notes.aux" "math_3140_class_notes.bbl" "math_3140_class_notes" 1761621462 0
   "./bibliography.bib" 1760536323 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "./math_3140_class_notes-blx.bib" 1760993340 342 5ba7332ec7ecc2dc9c6b1bd96e3d9aad ""
+  "./math_3140_class_notes-blx.bib" 1761621461 342 5ba7332ec7ecc2dc9c6b1bd96e3d9aad ""
   "/usr/local/texlive/2023/texmf-dist/bibtex/bst/biblatex/biblatex.bst" 1678141846 65484 b7949c47a88ed6dca66ebc7a04577312 ""
-  "math_3140_class_notes.aux" 1760993340 6154 aa65ec8f85e1ea1e233e46ccac6c3e1d "pdflatex"
+  "math_3140_class_notes.aux" 1761621461 6891 4764e87bab52c361e7244ef4de24c540 "pdflatex"
   (generated)
   "math_3140_class_notes.bbl"
   "math_3140_class_notes.blg"
   (rewritten before read)
-["pdflatex"] 1760993336 "/Users/fanghema/Desktop/aaMATH_3140/MATH_3140_class_notes/math_3140_class_notes.tex" "math_3140_class_notes.pdf" "math_3140_class_notes" 1760993341 0
-  "/Users/fanghema/Desktop/aaMATH_3140/MATH_3140_class_notes/math_3140_class_notes.tex" 1760924468 2798 8510728b9f396be797c39dae7ed98015 ""
+["pdflatex"] 1761621458 "/Users/fanghema/Desktop/aaMATH_3140/MATH_3140_class_notes/math_3140_class_notes.tex" "math_3140_class_notes.pdf" "math_3140_class_notes" 1761621462 0
+  "/Users/fanghema/Desktop/aaMATH_3140/MATH_3140_class_notes/math_3140_class_notes.tex" 1761620938 2856 7932c4141b8b0eba529d0bf969b01075 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1254269338 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc" 1202520719 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc" 1202520719 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
@@ -417,10 +417,12 @@
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
   "classes/class_1.tex" 1760536834 3288 b5fb14667b721e4a5f10bf3d20527cb8 ""
   "classes/class_10.tex" 1760928177 12129 233e8d1ddb520e0ba7d5e868d61c00aa ""
-  "classes/class_11.tex" 1760991711 9192 ce91bd01841054f345943caf16f5493f ""
-  "classes/class_12.tex" 1760993336 2302 ef97fe084264febc07fb330235994460 ""
-  "classes/class_13.tex" 1760643788 27 ce9204b3982733ce880c54056e3a3aa5 ""
-  "classes/class_14.tex" 1760647932 9495 a3a7e021641f2566e8540ea88a61b407 ""
+  "classes/class_11.tex" 1761101868 9193 8c329a0533f7809713cf0c5f3154191c ""
+  "classes/class_12.tex" 1761585328 11687 66f413bf309c1d800a0176fa0d53ecb4 ""
+  "classes/class_13.tex" 1761616358 9599 89ed7c3a636dc57f05d0c7fa51dbcdc2 ""
+  "classes/class_14.tex" 1761616611 9503 3bea4c07e44554968945d2913a52fc4f ""
+  "classes/class_15.tex" 1761620952 6763 e528924fe831f662030b613dcdecc499 ""
+  "classes/class_16.tex" 1761621458 924 7a1f0a2e582b2cb694209fcc3609848c ""
   "classes/class_2.tex" 1760537259 1785 b5e6478d1cf9a61a4e908c80f1425e2e ""
   "classes/class_3.tex" 1760537918 5726 1e24f398a46c3c285eac21f5b3cff3af ""
   "classes/class_4.tex" 1760631644 7246 d2afa040ea3610bbac1c7d9aef798b37 ""
@@ -429,12 +431,12 @@
   "classes/class_7.tex" 1760634222 9257 3ae3824ae66a0010ee57d5cde79c4739 ""
   "classes/class_8.tex" 1760660916 8438 f325b951983808449613e2dabf9d8593 ""
   "classes/class_9.tex" 1760887651 7235 de51127656e3f74c23fed9b7449c92be ""
-  "math_3140_class_notes.aux" 1760993340 6154 aa65ec8f85e1ea1e233e46ccac6c3e1d "pdflatex"
-  "math_3140_class_notes.bbl" 1760993107 512 242e9db92557ac81f6b30ce4f9334513 "bibtex math_3140_class_notes"
-  "math_3140_class_notes.out" 1760993340 6237 bd57a9937b5e480cb27c7dd04c950de2 "pdflatex"
-  "math_3140_class_notes.run.xml" 1760993340 2673 1f721a285038d74a1641a9bba3070a2a "pdflatex"
-  "math_3140_class_notes.tex" 1760924468 2798 8510728b9f396be797c39dae7ed98015 ""
-  "math_3140_class_notes.toc" 1760993340 3580 4884b3521d3faadcb8f7dfc23aa03db5 "pdflatex"
+  "math_3140_class_notes.aux" 1761621461 6891 4764e87bab52c361e7244ef4de24c540 "pdflatex"
+  "math_3140_class_notes.bbl" 1761620984 512 242e9db92557ac81f6b30ce4f9334513 "bibtex math_3140_class_notes"
+  "math_3140_class_notes.out" 1761621461 7079 4d26bc74a2d4fb7fcd57458e9033a485 "pdflatex"
+  "math_3140_class_notes.run.xml" 1761621461 2673 1f721a285038d74a1641a9bba3070a2a "pdflatex"
+  "math_3140_class_notes.tex" 1761620938 2856 7932c4141b8b0eba529d0bf969b01075 ""
+  "math_3140_class_notes.toc" 1761621461 4071 dfcd0b5ad53b9bf1d798a7828f635002 "pdflatex"
   "style.tex" 1760633500 11496 239b13fe12c46f9bd4c302bcbb00d7c7 ""
   (generated)
   "math_3140_class_notes-blx.bib"

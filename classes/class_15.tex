@@ -1,0 +1,230 @@
+\section{Class 15}
+
+\begin{remark}
+
+Recall that if $\dim V = n$ and $S = \left( s_1, s_2, \hdots s_n \right) $, then 
+\[
+    S* = (s_1^*, \hdots s_n^*)
+\]
+
+Is the dual basis for $V^*$, where 
+\[
+    s_j^* (s_i) = \delta_{ji}
+\]
+
+
+Note that for $v \in V$, there exists unique $a_i$'s such that 
+\[
+    v = \sum\limits_{i = 1}^{n} a_i s_i
+\]
+and 
+\[
+    s_j^*(v) = \sum\limits_{i = 1}^{n} a_i s_j^*(s_i) = a_j
+\]
+
+$s_j*$ is the $j$-th coordinate linear functional with respect to basis $S$.
+
+\end{remark}
+
+\begin{theorem}
+    Let $V$ be finite-dimensional $F$-vector space. Then there exists the natural isomorphism 
+    \begin{align*}
+        \theta : V &\to V^{**} = Hom_F(V^*, F) \\
+        v & \mapsto \theta(v) = \theta_v, \text{ where } \theta_v(f) = f(v)
+    \end{align*}
+    for all $f \in V^*$
+\end{theorem}
+
+\begin{proof}
+    \\
+    (1) $\theta_v \in Hom_F(V^*, F)$. Take arbitrary $f_1, f_2 \in V^*$, $a \in F$, 
+    \begin{align*}
+        &\theta_v(f_1 + af_2) \\
+        =& \left( f_1 + af_2 \right)(v) \\
+        =& f_1(v) + (af_2)(v) \\
+        =&  f_1(v) + af_2(v) \\
+        =& \theta_v(f_1) + a\theta_v(f_2)
+    \end{align*}
+    Hence $ \theta_v$ linear. 
+
+    (2) WTS $ \theta$ linear. I.e. WTS $ \theta (v_1 + av_2)= \theta(v_1) + a \theta(v_2)$ . \\
+
+    \begin{align*}
+        \theta (v_1 + av_2) (f) &= f \left( v_1 + av_2 \right)  \\
+        &= f(v_1) + a f(v_2) \\
+        &= \theta(v_1)(f) + a \theta(v_2) (f) \\
+        &= \left( \theta(v_1) + a \theta (v_2) \right)  (f)
+    \end{align*}
+
+    (3) WTS $ \theta$ injective. Let $v \in V$ such that $ \theta(v) = 0$. That means 
+    \[
+        \theta_v(f) = 0 
+    \]
+    for all $f \in V^*$, i.e. $f(v) = 0 $ for all $v \in V$. Then we claim that $v = 0$. Otherwise, we can extend $ \{ v \} $ to a basis for $V$. There exists a linear map $g: V \to F$ so that $g(v) = 1$ and $g(u_i) = 0$ for all other elements of the extended basis. Then $g \in V^*$ and $g(v) \neq 0$. 
+
+    (4) $\theta$ surjective. This is a consequence of the fact that $\theta $ is injective, and 
+    \[
+        \dim V^{**} = \dim V^* = \dim V
+    \]
+\end{proof}
+
+\begin{remark}
+    $V \cong V^{**}$ can be false if $\dim V = \infty$
+\end{remark}
+
+\begin{remark}(Notation): let $f \in V^*, v \in V$, then 
+    \[
+        \left<f, v\right> := f(v) \in F
+    \]
+\end{remark}
+
+
+\begin{proposition}
+    For all $f, g \in V^*, v, w \in V, a \in F$
+    \begin{enumerate}
+        \item $\left<f + g, v\right> = \left<f, v\right> + \left<g, v\right>$, $\left<af, v\right> = a\left<f, v\right>$
+        \item $\left<f_1, v + w\right> = \left<f, v\right> + \left<f,w\right>$, $\left<f, av\right> = a\left<f, v\right>$
+        \item $\left<f, v\right> = 0$ for all $v \in v \implies f = 0 \in V^*$
+        \item $\left<f, v\right> = 0$ for all $f \in V^* \implies v= 0$ is in $V$.
+    \end{enumerate}
+\end{proposition}
+
+\begin{remark}
+    Let $T = (f_1, f_2, \hdots f_n)$ basis for $V^*$. For all $b = (b_1,  \hdots b_n) \in F^n$, there exists unique $v \in V$ satisfying that 
+    \[
+    f_i (v) = b_i
+    \]
+    By isomorphism theorem, there exists unique $\varphi \in Hom_F(V^*, F)$ such that 
+    \[
+        \varphi(f_i) = b_i
+    \]
+    Since $ \Phi: V \to V^{**}$, $v \mapsto \Phi_v$ is an isomorphism and therefore surjective, there is unique $v \in V$ such that 
+    \[
+        \varphi = \Phi(v)
+    \]
+
+    i.e. 
+    \[f_i(v) = \Phi(v) (f_i) = \varphi(f_i) = b_i
+    \]
+\end{remark}
+
+\subsection{Orthogonality}
+
+\begin{definition}(Orthogonality)
+    Let $V$ be an $F$-vector space with dual $V^*$, $v \in V$ and $f \in V^*$ orthogonal if 
+    \[
+        \left< f, v \right> = 0
+    \]
+    This is denoted 
+
+    \[
+        f \perp v
+    \]
+\end{definition}
+
+\begin{definition}
+    Let $S \subseteq V$, then the orthogonal complement of $S$ in $V^*$ is 
+    \[
+        S^{\perp} := \{ f \in V^*: \left< f, v\right> = 0 \text{ for all } v \in S \} 
+    \]
+
+    Let $T \leq V^*$, then the orthogonal complement of $T$ in $V$ is
+    \[
+        T^{\perp} := \{ v \in V^: \left< f, v\right> = 0 \text{ for all } f \in V \} 
+    \]
+\end{definition}
+
+\begin{lemma} 
+    \[
+        S \subseteq V \implies S^{\perp} \leq V^*
+    \]
+    \[
+        T \subseteq V^* \implies T^{\perp} \leq V
+    \]
+\end{lemma}
+
+\begin{theorem}
+    Let $V$ be finite-dimensional vector space with dual $V^*$, then 
+    \begin{enumerate}
+        \item $S \subseteq \tilde{S} \subseteq V \implies \tilde{S}^{\perp} \leq S^{\perp} \leq V^*$ 
+        \item $W \leq V \implies \begin{cases}
+        \dim W^T = \dim V - \dim W \\
+        (W^{\perp})^{\perp} = W
+        \end{cases}$
+        \item $W_1, W_2 \subseteq V \implies 
+        \begin{cases}
+            (W_1 + W_2)^{\perp} = W_1^{\perp} \cap W_2^{\perp} \\
+            (W_1 \cap W_2)^{\perp} = W_1^{\perp} + W_2^{\perp}
+        \end{cases}$
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+
+    (1) By lemma, it suffices to check that 
+    \[
+        \tilde{S}^{\perp} \subseteq S^{\perp}
+    \]
+    Take $f \in \tilde{S}^{\perp}$, then 
+    \begin{align*}
+        &\left< f, v\right> = 0 \text{ for all } v \in \tilde{S} \\
+        \implies & \left<f, v \right> = 0 \text{ for all } v \in S \text{ since } S \subseteq \tilde{S} \\
+        \implies & f \in S^{\perp} \text{ by definition}
+    \end{align*}
+
+    (2) First let $T = (t_1, t_2, \hdots t_m)$ basis of $W$. Extend it to a basis of $V$. 
+    \[ 
+    \tilde{T} = (t_1, \hdots, t_m, t_{m + 1}, \hdots t_n)
+    \]
+
+    Then let $ \left( \tilde{T} \right)^*$ be a dual basis for $V^*$
+    \[
+    \left( \tilde{T} \right)^* = (t_1^*, \hdots, t_m^*, t_{m + 1}^*, \hdots, t_n^*)
+    \]
+
+    We claim that $ \left( t_{m + 1}^*, \hdots, t_n^* \right) $ is a basis for $W^{\perp}$. \\
+
+    It suffices to show that they span $W^{\perp}$. Let $f \in W^{\perp}$, then 
+    \[
+        f = \sum\limits_{ i = 1}^{n}  a_i s_i^* 
+    \]
+    For all $1 \leq j \leq m$, 
+    \[
+        f(t_j) = \sum\limits_{i = 1}^{n}  a_i t_i^* (t_j) = a_j
+    \]
+    Also $f(t_j) = 0$ since $t_j \in W, f \in W^{\perp}$. 
+
+    Hence $0 = a_j$ for $1 \leq j \leq m$, and 
+    \[f =\sum\limits_{i = m + 1}^{n}  a_i t_i^*
+    \]
+
+    Therefore $(t_{m + 1}^*, \hdots, t_n^*)$ span $W^{\perp}$. And 
+    \[\dim W^{\perp} = n - m = \dim V - \dim W
+    \]
+
+    For part 2.2, WTS $\left(W^{\perp}\right)^{\perp} = W$. Let $w \in W$, then 
+    \begin{align*}
+        & \left< f, w \right> = 0 \text{ for all } f \in W^{\perp} 
+        \implies & w \in \left( W^{\perp} \right)^{\perp}
+    \end{align*}
+
+    Therefore $W \subseteq \left( W^{\perp} \right)^{\perp}$. \\
+
+    Since 
+    \[
+        \dim \left( W^{\perp} \right)^{\perp} = \dim V^* - \dim W^{\perp} = \dim V^* - (\dim V - \dim W) = \dim W
+    \]
+
+    We have $W = (W^{\perp})^{\perp}$
+\end{proof}
+
+\newpage
+
+
+
+
+
+
+
+
+

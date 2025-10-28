@@ -1,2 +1,315 @@
 \section{Class 13}
+
+\subsection{Quotients}
+
+\begin{definition} 
+    (Congruence relation) Let $V$ be a $F$-vector space. An equivalence relation $\equiv$ on $V$ is called a congruence relation if for all $v, \tilde{v}, w \tilde{w} \in V, a \in F$, we have 
+    \begin{enumerate}
+        \item $v \equiv \tilde{v}, w \equiv \tilde{w} \implies v + w \equiv \tilde{v} + \tilde{w}$ 
+        \item $v \equiv \tilde{v} \implies av \equiv a \tilde{v}$
+    \end{enumerate}
+
+    I.e. a congruence relation is an equivalence relation \textbf{compatible} with vector addition and scalar multiplication.
+\end{definition}
+
+\begin{proposition}
+    Let $F$ be a field and $V$ an $F$-vector space. 
+    \begin{enumerate}
+        \item If $W \leq V$ then the relation , for all $v, w \in V$
+        \[
+            v \equiv w : \iff v - w \in W
+        \]
+        is a congruence relation. Moreover $W = \{ v \in V: v \equiv 0 \} $
+        \item If $\equiv$ is a congruence relation on $V$, then the wet $W = \{ v \in V: v \equiv 0 \} $ is a subspace of $V$ such that 
+        \item \[
+            v \equiv w \iff v - w \in W
+        \]
+    \end{enumerate} 
+\end{proposition}
+
+\begin{proof} \\
+
+    \textbf{Proof of (1)}: Let $W \leq V$ be a subspace and define $v \equiv w$ if $v - w \leq W$. Then this is 
+    \begin{itemize}
+        \item reflexive 
+        \[
+            v - v = 0 \in W
+        \]
+        \item symmetric
+        \[
+            v - w \in W \implies w - v = - (v - w) \in W
+        \]
+        \item transitive
+        \[
+            v - w \in W, w - u \in W \implies (v - w) + (w - u) = v - u \in W 
+        \]
+    \end{itemize} 
+
+    We check the congruence properties.
+    \begin{align*}
+        & v_1 \equiv v_2, w_1 \equiv w_2 \\
+        \implies & v_1 - v_2 \in W, w_1 - w_2 \in W \\
+        \implies (v_1 + w_1) - (v_2 + w_2) = (v_1 - v_2) + (w_1 - w_2) \in W \\
+        \implies & v_1 + w_1 \equiv v_2 + w_2
+    \end{align*}
+    Also
+    \begin{align*}
+        & v_1 \equiv v_2 \\
+        \implies & v_1 - v_2 \in W \\
+        \implies & a(v_1 - v_2) = av_1 - av_2 \in W \\
+        \implies & av_1 \equiv av_2
+    \end{align*}
+
+    By definition, 
+    \[
+        W = \{ v \in V : v \equiv 0 \} 
+    \]
+
+    Suppose $\equiv$ is a congruence relation, Define 
+    \[
+        W : = \{ v \in V, v \equiv 0 \} 
+    \]
+
+    We claim $W$ is a subspace of $V$. 
+    \begin{itemize}
+        \item $0 \equiv 0$ by reflexivity, hence $0 \in W$ 
+        \item If $v, w \in W$ 
+        \begin{align*}
+            & v, w \in W \\
+            \implies & v \equiv 0, w \equiv 0 \\
+            \implies & v + w \equiv 0 + 0 = 0 \\
+            \implies & v + w \in W
+        \end{align*}
+        \item $a \in F, v \in W$
+        \begin{align*}
+            & v \in W \\
+            \implies & v \equiv 0 \\
+            \implies & av \equiv a \cdot 0 = 0 \\
+            \implies & av \in W
+        \end{align*}
+    \end{itemize} 
+    Now suppose $v \equiv w$, then 
+    \begin{align*}
+        & v \equiv w  \\
+        \implies & v - w \equiv w - w = 0 \\
+        \implies & v - w \in W
+    \end{align*}
+
+    Suppose $v - w \in W$, then 
+    \begin{align*}
+        & v - w \in W \\
+        \implies & v - w \equiv 0 \\
+        \implies & v \equiv w
+    \end{align*}
+
+    Hence $v \equiv w \iff v - w \in W$
+\end{proof}
+
+\begin{definition}
+    (Equivalence classes): Let $X$ be a set and $\sim$ an equivalence relation. For $x \in X$, the equivalence class of $x$ is 
+    \[
+        \left[ x \right] = \{ y \in X : y \sim x \} 
+    \]
+
+    Then $X$ is the disjoint union of its equivalence classes, and the set of all classes is denoteed $X / \sim$
+\end{definition}
+
+\begin{proposition}
+    Let $V$ be an $F$-vector space and $\equiv$ a congruence relation on $V$. Then the set of equivalence classes $V / \equiv$ is itself an $F$-vector space with operations defined by 
+    \[
+        \left[ v \right]  = \left[ w \right]  = \left[ v + w \right] 
+    \]
+    \[
+        a \cdot \left[ v \right]  = \left[ av \right] 
+    \]
+
+    The canonical projection $\pi: V \to V /\equiv, v \mapsto \left[ v \right] $  is linear. 
+\end{proposition}
+
+\begin{proof}
+    Proof that operations are well defined 
+    \begin{itemize}
+        \item addition
+        \begin{align*}
+            & v_1 \equiv v_2, w_1 \equiv w_2 \\
+            \implies & v_1 + w_1 \equiv v_2 + w_2 \text{ by compatibility of congruence relation} \\
+            \implies & \left[ v_1 + w_1 \right] = \left[ v_2 + w_2 \right] 
+        \end{align*}
+        \item scalar multiplication
+        \begin{align*}
+            & v_1 \equiv v_2 \\
+            \implies & av_1 \equiv av_2 \\
+            \implies & [av_1] = [av_2]
+        \end{align*}
+    \end{itemize} 
+
+    Proof of vector space properties: omitted. \\
+
+    Proof that $\pi$ is linear 
+    \begin{align*}
+        \pi(v + w) &= \left[ v + w \right]  \\
+        &= \left[ v \right]  + \left[ w \right]  \\
+        &= \pi(v) + \pi(w)
+        \pi(av) &= \left[ av \right]  \\
+        &= a \left[ v \right]  \\
+        &= a \pi(v)
+    \end{align*}
+\end{proof}
+
+\begin{definition}
+    (Quotient space): Let $V$ be a vector space and $W \leq V$. The quotient space $V / W$ is defined to be 
+    \[
+        V / W : = V / \equiv , \text{ where } v \equiv w : \iff v -w \in W
+    \]
+    The equivalence class of $v \in V$ is also called the coset of $v$ and is denoted $v + W$.  \\
+
+    The canonical map $\pi$ sends each vector to its coset. \\
+    \begin{align*}
+        \pi: V & \to V / W \\
+        v & \mapsto v + W
+    \end{align*}
+\end{definition}
+
+\begin{theorem}
+    (Homomorphism theorem): Let $V, W$ be $F$-vector spaces and $\phi: V \to W$ a linear map, then 
+    \[
+        V / \ker( \phi) \cong Im( \phi)
+    \]
+\end{theorem}
+
+\begin{proof}
+    Define 
+    \begin{align*}
+        \bar{\phi}  : V / \ker( \phi) &\to Im( \phi) \\
+        \bar{\phi} \left( \left[ v \right]  \right)  &= \phi(v)
+    \end{align*}
+
+    To show well defined, take $[ v_1] = \left[ v_2 \right] $, then 
+    \begin{align*}
+        & v_1 - v_2 \in \ker( \phi) \\
+        \implies & \phi(v_1 - v_2) = 0 \\
+        \implies & \phi(v_1) = \phi(v_2)
+    \end{align*}
+
+    To show $ \bar{\phi} $ linear, 
+    \begin{align*}
+        \bar{\phi} \left( \left[ v \right] + \left[ w \right]  \right)  = \bar{ \phi}  ( \left[ v + w \right] ) = \phi(v + w) = \phi(v) + \phi(w) = \bar{\phi}  \left( [v] \right)  + \bar{ \phi}  \left( [w] \right) 
+    \end{align*}
+    Similarly for scalars. \\
+
+    To show injectivity, 
+    \begin{align*}
+        \bar{ \phi}  ( [v]) = 0 & \implies \phi(v) = 0 \\
+        & \implies v \in \ker( \phi) \\
+        & [v] = [0]
+    \end{align*}
+    To show surjectivity, 
+    \begin{align*}
+        w \in Im( \phi) &\implies w = \phi(v) \text{ for some } v \\
+        & \implies v = \bar{ \phi}  ([v])
+    \end{align*}
+
+    Hence $ \bar{\phi} $ is a linear isomorphism and 
+    \[
+        V / \ker( \phi) \cong Im( \phi)
+    \]
+\end{proof}
+
+\begin{corollary}
+    Every linear map $\phi: V \to W$ factors as 
+    \[
+        \phi = \iota \circ \bar{ \phi}  \circ \pi
+    \]
+
+    Where 
+    \begin{itemize}
+        \item $ \pi: V \to V / \ker(\phi)$ is the canonical projection 
+        \item $ \bar{ \phi}: /\ker( \phi) \to Im( \phi) $ is an isomorphism 
+        \item $\iota: Im( \phi) \to W$ is the inclusion map.
+    \end{itemize} 
+    
+    This can be expressed in the commutative diagram:
+    \[
+    \begin{array}{ccc}
+    V & \xrightarrow{\varphi} & W \\
+    \downarrow \pi & & \uparrow \iota \\
+    V / \ker(\varphi) & \xrightarrow{\overline{\varphi}} & \operatorname{Im}(\varphi)
+    \end{array}
+    \]
+\end{corollary}
+
+\begin{proposition}
+    (Dimension of quotient space): Let $V$ be a finite dimensional vector space over $F$ and $W \leq V$. 
+    \[
+        \dim ( V /W) = \dim (V) - \dim (W)
+    \]
+\end{proposition}
+
+\begin{proof}
+    Let $ \{ w_1, \hdots w_k\} $ be a basis for $W$. Since $W \leq V$, we can extend this to a basis for $V$. 
+    \[
+    \{ w_1, w_2, \hdots w_k, v_{k + 1}, \hdots v_n \} 
+    \]
+
+    We claim that the cosets $ \left[ v_{k + 1}, \hdots v_n\right] $ form a basis for $V / W$. \\
+
+    To show spanning, take $v \in V$ arbitrary, we can write 
+    \[
+        v = a_1 w_1 + \hdots a_k w_k + a_{k + 1}v_{k + 1} + \hdots a_n v_n
+    \]
+
+    Taking $v$ to its cosets (taking the modulo with $W$), 
+    \[
+    \left[ v \right]  = a_{k + 1} \left[ v_{k + 1} \right]  + \hdots a_n \left[ v_n \right] 
+    \]
+
+    To show they are linearly independent, suppose 
+    \[
+        a_{k + 1} \left[ v_{k + 1} \right]  + \hdots a_n \left[ v_n \right]  = 0
+    \]
+    Then 
+    \[a_{k + 1}v_{k + 1} + \hdots a_n v_n \in W
+    \]
+
+    Since $ \{ w_1,\hdots, w_k, v_{k + 1}, \hdots v_n \} $ basis for $V$, the only solution is $a_{k + 1} = \hdots = a_n = 0$. Hence the cosets are linearly independent. 
+
+    Therefore $ \{  [v_{k + 1}, \hdots v_n] \}$ basis for $V / W$, and 
+    \[
+        \dim (V / W) = n - k = \dim V - \dim W
+    \]
+\end{proof}
+
+\begin{corollary}
+    (New proof of the dimension formula for linear maps / rank-nullity) Let $ \phi: V \to Wi$ be a linear map between finite dimensional vector sapces. Then 
+    \[
+    \dim V = \dim ( \ker( \phi)) + \dim ( Im ( \phi))
+    \]
+\end{corollary}
+
+\begin{proof}
+    By Homomorphism Theorem, 
+    \[
+    V / \ker(\phi) \cong Im ( \phi)
+    \]
+
+    Hence $\dim(V / \ker( \phi)) = \dim ( Im ( \phi))$. By proposition, 
+    \[
+        \dim( V / \ker( \phi)) = \dim(V) - \dim \ker( \phi)
+    \]
+
+    Hence 
+    \[
+        \dim V - \dim (\ker( \phi))  = \dim( Im( \phi))
+    \]
+    
+    
+\end{proof}
+
+
+
+
+
+
+
+
 \newpage

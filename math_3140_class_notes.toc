@@ -36,9 +36,15 @@
 \contentsline {section}{\numberline {11}Class 11}{32}{section.11}%
 \contentsline {subsection}{\numberline {11.1}Representation of linear maps}{32}{subsection.11.1}%
 \contentsline {section}{\numberline {12}Class 12}{36}{section.12}%
-\contentsline {section}{\numberline {13}Class 13}{37}{section.13}%
-\contentsline {section}{\numberline {14}Class 14}{38}{section.14}%
-\contentsline {subsection}{\numberline {14.1}Quotients, cont'd}{38}{subsection.14.1}%
-\contentsline {subsection}{\numberline {14.2}Linear Functionals}{39}{subsection.14.2}%
-\contentsline {subsubsection}{\numberline {14.2.1}Dual space}{39}{subsubsection.14.2.1}%
-\contentsline {subsubsection}{\numberline {14.2.2}Duality Theorem}{41}{subsubsection.14.2.2}%
+\contentsline {subsection}{\numberline {12.1}Equivalence and rank of matrices}{36}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}Systems of linear equations}{38}{subsection.12.2}%
+\contentsline {section}{\numberline {13}Class 13}{40}{section.13}%
+\contentsline {subsection}{\numberline {13.1}Quotients}{40}{subsection.13.1}%
+\contentsline {section}{\numberline {14}Class 14}{44}{section.14}%
+\contentsline {subsection}{\numberline {14.1}Quotients, cont'd}{44}{subsection.14.1}%
+\contentsline {subsection}{\numberline {14.2}Linear Functionals}{45}{subsection.14.2}%
+\contentsline {subsubsection}{\numberline {14.2.1}Dual space}{45}{subsubsection.14.2.1}%
+\contentsline {subsubsection}{\numberline {14.2.2}Duality Theorem}{47}{subsubsection.14.2.2}%
+\contentsline {section}{\numberline {15}Class 15}{48}{section.15}%
+\contentsline {subsection}{\numberline {15.1}Orthogonality}{49}{subsection.15.1}%
+\contentsline {section}{\numberline {16}Class 16}{51}{section.16}%

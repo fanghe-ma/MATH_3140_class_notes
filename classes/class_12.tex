@@ -1,5 +1,105 @@
 \section{Class 12}
 
+\subsection{Equivalence and rank of matrices}
+
+\begin{definition}
+    (Equivalent matrices) $A, B \in F^{m \times n}$. $B$ is equivalent to $A$ if there are matrices $c \in Gl_m(F), D \in Gl_n(F)$ so that 
+    \[
+        B = C \cdot A \cdot D
+    \]
+\end{definition}
+
+\begin{definition}
+    (Similar matrices) $A, B \in F^{m \times n}$. $B$ is similar to $A$ if $m = n$ and 
+    \[
+        B = C^{-1} A C
+    \]
+    for some $C \in Gl_n(F)$
+\end{definition}
+
+\begin{remark}
+    Recall that if $\phi: V \to W$ linear, and $S, \tilde{S}$ basis for $V$, $T, \tilde{T}$ basis for $W$, then 
+    \[
+        \left[ \phi \right]_{\tilde{S} \to \tilde{T}} = C_{T \to \tilde{T}} \left[ \phi \right]_{S \to T} C_{\tilde{S} \to S}
+    \]
+
+    Matrices that represent the same linear map with respect to different basis are equivalent.  \\
+\end{remark}
+
+\begin{remark}
+    Reciprocally, given equivalent matrices $A, B \in F^{m \times n}$, and $V, W$ vector spaces of dimension $n, m$ with bases $B_v, B_w$, the matrix $A$ represents a unique transformation 
+    \begin{align*}
+        \phi: V & \to W \\
+        \left[ \phi \right]_{B_V \to B_W} = A
+    \end{align*}
+    Then $B$ represents $\phi$ with respect to some new bases.
+\end{remark}
+
+\begin{remark}
+    In the case $ \phi: V \to V$, $S, \tilde{S}$ bases for $V$, 
+    \[
+        \left[ \phi \right]_{\tilde{S} \to \tilde{S}} 
+        = C_{S \to \tilde{S}} \left[ \phi \right]_{S \to S} C_{\tilde{S} \to S} 
+        = C_{\tilde{S} \to S}^{-1} \left[ \phi \right]_{S \to S} C_{\tilde{S} \to S}
+    \]
+    and in this case 
+    \[
+        \left[ \phi \right]_{\tilde{S} \to \tilde{S}}
+    \]
+    is similar to
+    \[
+        \left[ \phi \right]_{{S} \to {S}}
+    \]
+\end{remark}
+
+\begin{remark}
+    \textbf{Equivalent matrices} represent the same linear map with different bases in the domain and the target.  \\
+    
+    \textbf{Similar matrices} represent the same endomorphism with respect to different bases. 
+\end{remark}
+
+\begin{definition}
+    (Equivalence relation) Let $X$ be a set. A relation $\sim$ on $X$ is called an \textbf{equivalence relation} if it is 
+    \begin{enumerate}
+        \item symmetric 
+        \[
+            x \sim y \iff y \sim x \text{ for all } x, y \in X
+        \]
+        \item reflexive
+        \[
+            x \sim x \text{ for all } x \in X
+        \]
+        \item transitive
+        \[
+        x \sim y, y \sim z \implies x \sim z \text{ for all }x, y, z, \in X
+        \]
+    \end{enumerate}
+\end{definition}
+
+\begin{remark}
+    "Equivalence" is an equivalence relation on $F^{m \times n}$. \\
+
+    "Similarity" is an equivalnece relation on $F^{n \times n}$. 
+    \begin{enumerate}
+        \item symmetry
+        \[
+            B = C^{-1} AC \implies CBC^{-1} = A
+        \]
+        \item reflexivity
+        \[
+            A = I_n^{-1} A I_n
+        \]
+        \item transitivity
+        \[
+            B = C^{-1}AC, D = \tilde{C}^{-1} B \tilde{C}
+        \] for some $C, \tilde{C} \in Gl_n(F)$, then 
+        \[
+        D = \tilde{C}^{-1} (C^{-1}AC)\tilde{C} = (C \tilde{C})^{-1} A (C \tilde{C})
+        \]
+        and $C\tilde{C} \in Gl_n(F)$
+    \end{enumerate}
+\end{remark}
+
 \begin{definition}
     (rank) The (column) rank of $A \in \mathbb{R}^{m \times n}$ is the maximal number of linearly independent columns, i.e. the dimension of the space spanned by column vectors in $\mathbb{R}^m$. \\
 
@@ -63,13 +163,254 @@ where $r = \rank(A)$, and this form is known as the \textbf{rank-normal} form.
     \[
         \left[ \phi \right]_{B^n \to B^m} = A
     \]
+
+    We know that such a map exists because 
+    \begin{align*}
+        Hom \left( \mathbb{R}^n , \mathbb{R}^m \right)  &\to F^{m \times n} \\
+        \psi &\mapsto \left[ \psi \right]_{B_n \to B_m}
+    \end{align*}
+    is isomorphism, and therefore surjective. 
+
     Let $S_2$ be a basis for $\ker( \phi)$. Extend $S_2$ to be a basis for $\mathbb{R}^n$. \\
 
     \[
-        \tilde{S} = \{s_1, s_2, \hdots s_r, s_{r + 1}, \hdots s_n \} 
+        \tilde{S} = \{\underbrace{s_1, s_2, \hdots s_r}_{S^1}, \underbrace{s_{r + 1}, \hdots s_n}_{S^2} \} 
     \]
+
+    where $r$ is such that $\dim \ker( \phi) = n - r$. \\
+
+    Since $\phi(s_i) = 0$ for all $r < i \leq n$, and $\phi(s_1), \phi(s_2) \hdots \phi(s_r)$ linearly independent, we know that 
+    \[
+        \left( \phi(s_1), \phi(s_2), \hdots \phi(s_r) \right) 
+    \]
+    is a basis for $Im( \phi) \leq F^m$. \\
+
+    For $1 \leq i \leq r$, we define 
+    \[
+        t_i := \phi(s_i)
+    \]
+    Hence 
+    \[
+        T = (t_1, t_2, \hdots t_r) 
+    \]
+    is a basis for $Im( \phi)$. \\
+
+    Extend $T$ to basis $\tilde{T}$ for $F^m$.
+    \[
+        \tilde{T} = (t_1, t_2, \hdots, t_r, t_{r + 1}, \hdots, t_m)
+    \]
+
+    Note that $[ \phi]_{\tilde{S} \to \tilde{T}}$ is in rank normal form, and 
+    \[
+        \left[ \phi \right]_{\tilde{S} \to \tilde{T}} = C_{B^m \to \tilde{T}} \underbrace{\left[ \phi \right]_{B^n \to B^m}}_{=A} C_{\tilde{S} \to B^n}
+    \]
+
+    Hence $[\phi]_{\tilde{S} \to \tilde{T}}$ and $A$ equivalent. \\
+
+    Since the number of nonzero rows is exactly $rank(A)$, this is unique. 
     
 \end{proof}     
+
+\begin{remark}
+    Elementary matrices are those obtained by performing a single elementary row operation on identity. \\
+
+    Multiplying a matrix on the left by an elementary matrix applies the corresponding row operation on $A$. 
+\end{remark}
+
+\begin{remark}
+    Multiplying $A$ on the right by an elementary matrix performs an analogous column operation.
+\end{remark}
+
+\begin{example}
+    Let $A$
+    \[
+        A = \begin{pmatrix} 
+          1 & 2 \\ 3 & 4  
+        \end{pmatrix}
+    \]
+    Let $B$ be an elementary matrix reprensting the row operation $R_2 + 3R_1 \to R_2$
+    \[
+        \begin{pmatrix} 
+          1 & 0 \\ 3 & 1  
+        \end{pmatrix}
+    \]
+
+    Then,  multiplying on the left performs $\leftarrow R_2 + 3 R_1 \to R_2$
+    \[
+        \begin{pmatrix} 
+          1 & 0 \\ 3 & 1  
+        \end{pmatrix} \begin{pmatrix} 
+          1 & 2 \\ 3 & 4  
+        \end{pmatrix} = \begin{pmatrix} 
+          1 & 2 \\ 6 & 10  
+        \end{pmatrix}
+    \]
+    Multiplying on the right performs $C_1 + 3 C_2 \to C_1$
+\end{example}
+
+\begin{proposition}
+    The rank of a matrix does not change under elementary row or column operations.
+\end{proposition}
+
+\begin{proof}
+    Let $A \in F^{m \times n}$ and $E \in Mat_m(F)$ corresponding to an elementary row operation. Then 
+    \[
+        B = EA = EA I
+    \]
+
+    Hence $B$ and $A$ are equivalent, and 
+    \[
+        \rank(B) = \rank(A)
+    \]
+
+    Similarly for column operations.
+\end{proof}
+
+\begin{example}
+    Let $A$ be $ \begin{pmatrix} 
+      1 & 2 & 3 \\  
+      4 & 5 & 6 \\  
+      7 & 8 & 9 \\  
+    \end{pmatrix}
+    $. Then 
+    \begin{align*}
+        \begin{pmatrix} 
+            1 & 2 & 3 \\
+            4 & 5 & 6 \\  
+            7 & 8 & 9 \\  
+        \end{pmatrix}
+        \overset{\text{row operations}}{\longrightarrow} 
+        \begin{pmatrix} 
+            1 & 2 & 3 \\
+            0 & -3 & -6 \\  
+            0 & -6 & -12 \\  
+        \end{pmatrix}
+        \overset{\text{col operations}}{\longrightarrow} 
+        \begin{pmatrix} 
+            1 & 0 & 0 \\
+            0 & -3 & -6 \\  
+            0 & -6 & -12 \\  
+        \end{pmatrix} \\
+        \overset{\text{row operations}}{\longrightarrow} 
+        \begin{pmatrix} 
+            1 & 0 & 0 \\
+            0 & 1 & 2 \\  
+            0 & 1 & 2 \\  
+        \end{pmatrix} 
+        \overset{\text{row operations}}{\longrightarrow} 
+        \begin{pmatrix} 
+            1 & 0 & 0 \\
+            0 & 1 & 2 \\  
+            0 & 0 & 0 \\  
+        \end{pmatrix} 
+        \overset{\text{col operations}}{\longrightarrow} 
+        \begin{pmatrix} 
+            1 & 0 & 0 \\
+            0 & 1 & 0 \\  
+            0 & 0 & 0 \\  
+        \end{pmatrix} 
+    \end{align*}
+
+    Hence $\rank(A) = 2$.
+\end{example}
+
+\begin{remark}
+    We can use row and column operations to put a matrix in \textbf{rank normal form}, where the rank is easy to observe.
+\end{remark}
+
+\begin{remark}
+    Row rank and (column) rank agreee.
+\end{remark}
+
+\begin{remark}
+    Equivalence of matrices reserves row rank. \\
+
+    Let $A \in F^{m \times n}$  and $B$ be its rank normal form. Then, 
+    \[
+        \text{row rank} (A) = \rank (A) = \text{row rank} (B) = \rank(B) = r
+    \]
+\end{remark}
+
+\subsection{Systems of linear equations}
+
+\begin{theorem}
+    Let $A \in F^{m \times n}, b \in F^m$. And $Ax = b$ be a system of linear equations. \\
+
+    Then 
+    \begin{enumerate}
+        \item The system is solvable if and only if 
+        \[
+            \rank(A) = \rank(A | b)
+        \]
+        \item If $b = 0$ then the solution space of $Ax = 0$ is a subspace of $F^n$ of dimension $n - \rank(A)$
+        \item Let $x_0$ be a solution of $Ax = b$. Then every solution of $Ax = b$ has the form 
+        \[
+            x = x_0 + y
+        \]
+        where $y$ is a solution of the homogenous system. 
+    \end{enumerate} 
+\end{theorem}
+\begin{proof} \\
+
+\textbf{Proof of (1)}: Let $V = F^n, W = F^m$, with standard basis $\beta^n, \beta^m$, there exits unique 
+\[
+    \phi: V \to W
+\]
+so that 
+\[
+    [\phi]_{\beta^n \to \beta^m}  = A
+\]
+
+Then $Ax = b$ is the coordinate representation of $\phi (x) = b$. 
+\begin{align*}
+    \text{system is solvable} & \iff \phi(x) = b \text{ has a solution} \\
+    & \iff b \in Im( \phi) = span \{ \text{ columns of } A \}  \\
+    & \iff b \text{ is linear combination of columns of } A \\
+    & \iff \rank(A) = \rank(A | b)
+\end{align*}
+
+\textbf{Proof of (2)}: Again let $ \phi: F^n \to F^m$ such that 
+\[
+    \left[ \phi \right]_{\beta^n \to \beta^m} = A
+\]
+
+By dimension formula, 
+\[
+    n = \dim Im( \phi) + \dim \ker( \phi)
+\]
+
+Where $\dim Im( \phi) = \rank(A)$. 
+Hence 
+\[
+    \dim \ker( \phi) = n - \rank(A)
+\]
+
+\textbf{Proof of (3)}: Suppose $Ax_0 = b$. Then 
+\begin{align*}
+    Ax = b & \iff Ax = Ax_0 \\
+    & \iff A(x - x_0) = 0 \\
+    &\iff x - x_0 \in \ker(A) \\
+    & \iff x = x_0 + y, y \in \ker(A)
+\end{align*}
+
+
+
+
+
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
