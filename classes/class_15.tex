@@ -146,7 +146,11 @@ $s_j*$ is the $j$-th coordinate linear functional with respect to basis $S$.
 \begin{theorem}
     Let $V$ be finite-dimensional vector space with dual $V^*$, then 
     \begin{enumerate}
-        \item $S \subseteq \tilde{S} \subseteq V \implies \tilde{S}^{\perp} \leq S^{\perp} \leq V^*$ 
+        \item $S \subseteq \tilde{S} \subseteq V \implies 
+        \begin{cases}
+            \tilde{S}^{\perp} \leq S^{\perp} \leq V^*  \\ 
+            \left< S \right>^{\perp} = S^{\perp}
+        \end{cases}$
         \item $W \leq V \implies \begin{cases}
         \dim W^T = \dim V - \dim W \\
         (W^{\perp})^{\perp} = W
@@ -217,6 +221,137 @@ $s_j*$ is the $j$-th coordinate linear functional with respect to basis $S$.
 
     We have $W = (W^{\perp})^{\perp}$
 \end{proof}
+
+\begin{example}
+    Let $W \leq \mathbb{R}^5$, we want to find a basis for $W^{\perp}$, where 
+    \[
+        W = span \{ 
+            \begin{pmatrix} 
+              1 \\ -1 \\ 0 \\ 0 \\ 0  
+            \end{pmatrix},
+            \begin{pmatrix} 
+              0 \\ 0 \\ 1 \\ -1 \\ 0  
+            \end{pmatrix},
+            \begin{pmatrix} 
+              0 \\ 2 \\ 0 \\ 0 \\ 0  
+            \end{pmatrix}
+        \} 
+    \]
+
+    \textbf{Option 1}: Extend basis for $W$ to basis for $V$, taking the duals gives a basis for the orthogonal complement. \\
+
+    i.e. let 
+    \[
+        \beta_W = \{ 
+            \begin{pmatrix} 
+              1 \\ -1 \\ 0 \\ 0 \\ 0  
+            \end{pmatrix},
+            \begin{pmatrix} 
+              0 \\ 0 \\ 1 \\ -1 \\ 0  
+            \end{pmatrix},
+            \begin{pmatrix} 
+              0 \\ 1 \\ 0 \\ 0 \\ 0  
+            \end{pmatrix}
+         \} 
+    \]
+
+    Extend $\beta_W$ to basis for $V$, say 
+    \[
+        S = \{ 
+            \begin{pmatrix} 
+              1 \\ -1 \\ 0 \\ 0 \\ 0  
+            \end{pmatrix},
+            \begin{pmatrix} 
+              0 \\ 0 \\ 1 \\ -1 \\ 0  
+            \end{pmatrix},
+            \begin{pmatrix} 
+              0 \\ 1 \\ 0 \\ 0 \\ 0  
+            \end{pmatrix},
+            \begin{pmatrix} 
+              0 \\ 0 \\ 0 \\ 1 \\ 0  
+            \end{pmatrix},
+            \begin{pmatrix} 
+              0 \\ 0 \\ 0 \\ 0 \\ 1  
+            \end{pmatrix}
+        \}
+    \]
+
+    Then, 
+    \[
+        \{ s_4^*, s_4^* \} , \text{ where } s_4 = e_4, s_5 = e_5
+    \]
+    is a basis for $W^{\perp}$
+    
+    
+
+    \textbf{Option 2}: 
+
+    \begin{align*}
+        W = \left<T \right>, \text{ where } T = \{ 
+            \begin{pmatrix} 
+              1 \\ -1 \\ 0 \\ 0 \\ 0  
+            \end{pmatrix},
+            \begin{pmatrix} 
+              0 \\ 0 \\ 1 \\ -1 \\ 0  
+            \end{pmatrix},
+            \begin{pmatrix} 
+              0 \\ 2 \\ 0 \\ 0 \\ 0  
+            \end{pmatrix}
+             \} 
+    \end{align*}
+
+    \begin{align*}
+        W^{\perp} & = \left<T\right>^{\perp}  \\
+        & = T^{\perp} \\  
+        &= \{  f : (\mathbb{R}^5)^*: f(t_1) = f(t_2) = f(t_3) = 0 \} 
+    \end{align*}
+
+    Let $f(v)$ have the form 
+    \[
+        f(v) = \begin{pmatrix} 
+          a \\ b \\ c \\ d \\ e  
+        \end{pmatrix} \cdot v 
+        = 
+        = \begin{pmatrix} 
+          a \\ b \\ c \\ d \\ e  
+        \end{pmatrix} \cdot \begin{pmatrix} 
+          x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5  
+        \end{pmatrix} 
+    \]
+    Hence 
+    \begin{align*}
+        \begin{cases}
+            a - b = 0 \\
+            c - d = 0 \\
+            b = 0
+        \end{cases} \implies 
+        f(v) = \begin{pmatrix} 
+          0 \\
+          0 \\
+          c \\
+          c \\
+          d \\
+        \end{pmatrix} \cdot v
+    \end{align*}
+
+    Hence $W^{\perp}$ has basis $ \{ f_1, f_2 \} $ where 
+    \[
+        f_1(v) = x_3 + x_4, f_2(v) = x_5
+    \]
+    
+    
+\end{example}
+
+
+
+
+
+
+
+
+
+
+
 
 \newpage
 
